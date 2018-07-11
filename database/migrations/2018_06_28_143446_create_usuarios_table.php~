@@ -17,16 +17,13 @@ class CreateUsuariosTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('nome');
             $table->string('sobrenome');
-            $table->integer('tipoUsuario_id');
+            $table->boolean('tipoUsuario_id');
             $table->string('sexo');
             $table->date('nascimento');
             $table->string('email');
             $table->timestamps();
         });
         
-        Schema::table('usuarios', function (Blueprint $table) {
-            $table->foreign('tipoUsuario_id')->references('id')->on('TipoUsuario');
-        });
     }
 
     /**

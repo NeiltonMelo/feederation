@@ -4,7 +4,7 @@ namespace feederation;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TipoUsuario extends Model
+class Cargos_da_Guilda extends Model
 {
     //
 }

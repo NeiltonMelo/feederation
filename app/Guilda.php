@@ -4,7 +4,7 @@ namespace feederation;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Empresa extends Model
+class Guilda extends Model
 {
     //
 }

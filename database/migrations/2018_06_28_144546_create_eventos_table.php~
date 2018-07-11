@@ -17,15 +17,11 @@ class CreateEventosTable extends Migration
             $table->increments('id');
             $table->string('tipo');
             $table->date('data');
-            $table->integer('persona_id');
-            $table->integer('game_id');
+            
             $table->timestamps();
         });
         
-        Schema::table('eventos', function (Blueprint $table) {          
-            $table->foreign('game_id')->references('id')->on('Game');
-            $table->foreign('persona_id')->references('id')->on('Persona');
-        });
+        
     }
 
     /**

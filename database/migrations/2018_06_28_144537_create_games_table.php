@@ -16,15 +16,13 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->integer('empresa_id');
+				$table->string('genero');            
+            $table->string('classificacaoIndicativa');
             $table->date('lancamento');
             $table->integer('numeroUsuarios');
             $table->timestamps();
         });
         
-        Schema::table('games', function (Blueprint $table) {
-            $table->foreign('empresa_id')->references('id')->on('Empresa');
-        });
     }
 
     /**

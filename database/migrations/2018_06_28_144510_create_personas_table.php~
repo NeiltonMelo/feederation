@@ -15,8 +15,6 @@ class CreatePersonasTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('usuario_id')->unsigned();
-            $table->integer('game_id')->unsigned();
             $table->date('nascimento');
             $table->string('sexo');
             $table->string('nome');
@@ -24,10 +22,7 @@ class CreatePersonasTable extends Migration
             $table->timestamps();
         });
         
-        Schema::table('personas', function (Blueprint $table) {            
-            $table->foreign('game_id')->references('id')->on('Game');
-            $table->foreign('usuario_id')->references('id')->on('Usuario');
-        });
+        
     }
 
     /**

@@ -5,6 +5,7 @@ namespace feederation\Http\Controllers;
 use Illuminate\Http\Request;
 use feederation\User;
 use Validator;
+use Input;
 
 class UsuarioController extends Controller
 {
@@ -18,7 +19,22 @@ class UsuarioController extends Controller
 		$this->validate($request, [
     		'email'				=>	'required|email',
     	]);
-		return view('cadastrarUsuario');
+    	
+		$dados_email = array(
+			'email'				=>	$request->get('email'),		
+		);  	
+    	$rules = array('email' => 'unique:users,email');
+
+		$validator = Validator::make($dados_email, $rules);
+
+		if ($validator->fails()) {	
+   		return back()->with('error','Este e-mail já está em uso');
+		}
+		else {
+   	 	return view('cadastrarUsuario');
+		}
+    	
+		
     		
 	}
 	   

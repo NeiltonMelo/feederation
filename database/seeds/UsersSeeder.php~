@@ -12,7 +12,7 @@ class UsuariosSeeder extends Seeder
      */
     public function run()
     {
-        Usuario::create([
+        User::create([
         		'nome'				=> 'John',
         		'sobrenome'			=> 'Smith',
         		'administrador'	=>	FALSE,

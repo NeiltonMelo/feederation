@@ -36,12 +36,18 @@ class UsuarioController extends Controller
 	}
 		
 	public function editarUsuario(Request $request){
+		
 		$user = \feederation\User::find($request->id);
 		return view('editarUsuario',['user'=> $user]);	 
 	}
 	
 			
 	public function atualizarUsuario(Request $request){
+		$this->validate($request, [
+    		'email'				=>	'required|email',
+    		'nome'				=>	'required',
+    		'sobrenome'			=>	'required'
+    	]);
 		$user = \feederation\User::find($request->id);
 		$user->nome = $request->nome;
 		$user->sobrenome = $request->sobrenome;

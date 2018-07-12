@@ -9,7 +9,7 @@ use Validator;
 class UsuarioController extends Controller
 {
 
-	public function listar(Request $request){
+	public function listarUsuarios(Request $request){
 		$user = \feederation\User::All();
 		return view ('listarUsuarios', ['user'=> $user]);	
 	}
@@ -30,30 +30,30 @@ class UsuarioController extends Controller
         		'sexo'				=>	$request->sexo,
         		'nascimento'		=>	$request->nascimento,
         		'email'				=>	$request->email,
-        		'password'			=>	$request->password,
+        		'password'			=>	bcrypt($request->password),
       ]);
 		return redirect("main/");
 	}
 		
-	public function editar(Request $request){
+	public function editarUsuario(Request $request){
 		$user = \feederation\User::find($request->id);
 		return view('editarUsuario',['user'=> $user]);	 
 	}
 	
 			
-	public function atualizar(Request $request){
+	public function atualizarUsuario(Request $request){
 		$user = \feederation\User::find($request->id);
 		$user->nome = $request->nome;
 		$user->sobrenome = $request->sobrenome;
 		$user->email=$request->email;
 		$user->update();
-		return redirect("/listar/users");
+		return redirect("/listarUsuarios");
 	}  
 	
 	public function remover(Request $request){
 		$user = \feederation\User::find($request->id);
 		$user->delete();
-		return redirect("/listar/users");
+		return redirect("/listarUsuarios");
 	}	
 
 

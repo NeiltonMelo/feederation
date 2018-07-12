@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use feederation\Usuario;
+use feederation\User;
 
 class UsuariosSeeder extends Seeder
 {

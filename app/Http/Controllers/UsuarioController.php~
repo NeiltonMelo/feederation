@@ -47,7 +47,7 @@ class UsuarioController extends Controller
 		$user->sobrenome = $request->sobrenome;
 		$user->email=$request->email;
 		$user->update();
-		return redirect("/listarUsuarios");
+		return redirect("/main/loginEfetuado");
 	}  
 	
 	public function remover(Request $request){

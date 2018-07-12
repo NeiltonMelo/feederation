@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/listar/usuario','UsuarioController@listar');
-Route::get('/editar/usuario{id}','UsuarioController@editar');
+Route::get('/listarUsuarios','UsuarioController@listarUsuarios');
+Route::get('/editarUsuario{id}','UsuarioController@editarUsuario');
 Route::get('/remover/usuario{id}','UsuarioController@remover');
-Route::post('/atualizar/usuario','UsuarioController@atualizar');
+Route::get('/atualizarUsuario','UsuarioController@atualizarUsuario');
 Route::post('/checarEmail', 'UsuarioController@checarEmail');
 Route::post('/cadastrarUsuario', 'UsuarioController@cadastrarUsuario');
 
@@ -26,4 +26,6 @@ Route::get('/main','MainController@index');
 Route::post('/main/checarLogin','MainController@checarLogin');
 Route::get('/main/loginEfetuado','MainController@loginEfetuado');
 Route::get('/main/sair','MainController@sair');
+
+
 

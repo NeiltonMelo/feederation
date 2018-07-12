@@ -9,8 +9,7 @@
 		<tr>
 			<td>{{ $user->id }} </td>
 			<td>{{$user->nome}} </td>
-			<td><a href='/editar/usuario{{ $usuario->id }}'> editar </a>
-				 <a href='/remover/usuario{{ $usuario->id}}'> remover </a></td>
+			<td><a href='/editarUsuario{{$user->id}}' >editar</td>
 		</tr>
 		@endforeach
 	</table>

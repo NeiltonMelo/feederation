@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Feederation - Editar Usuario</title>
-</head>
-<body>
-<h1>Atualize seus dados aqui</h1>
-</body>
-<form action="/editarUsuario" method="post" >
-	<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-	<input type="hidden" name="id" value="{{ $user->id }}" />
-	Nome: 					<input type="text" name="nome" /><br/>
-	Sobrenome: 				<input type="text" name="sobrenome" /><br/>
-   email: 					<input type="text" name="email" /><br/>
- <input type="submit" value="atualizar" />
-</form>
+	<head>
+		<title>Feederation - Editar Usuario</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/
+		jquery/3.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://
+		maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/
+		bootstrap.min.css" />
+		<script src="https://maxcdn.bootstrapcdn.com/
+		bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			.box{
+				width: 600px;
+				margin:0 auto;
+				border:1px solid #ccc;			
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Atualize seus dados aqui</h1>
+	
+		<form action="/editarUsuario" method="post" >
+			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+			<input type="hidden" name="id" value="{{ $user->id }}" />
+			Nome: 					<input type="text" name="nome" /><br/>
+			Sobrenome: 				<input type="text" name="sobrenome" /><br/>
+   		email: 					<input type="text" name="email" /><br/>
+ 			<input type="submit" value="atualizar" />
+		</form>
+	</body>
 </html>

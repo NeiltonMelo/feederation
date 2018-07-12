@@ -24,9 +24,13 @@
 			<br/>
 			
 			@if(isset(Auth::user()->email))
+				<?php $id = Auth::user()->id;?>
 				<div class="alert alert-danger success-block">
-					<strong>Bem-vindo {{Auth::user()->email}}</strong>
+					<strong>Bem-vindo {{Auth::user()->nome}}</strong>
 					<br/>
+					<form method="get" action="{{url('editarUsuario')}}{{$id}}">
+						<input type="submit" name="editarUsuario" class="btn btn-primary" value="Editar Usuario" /> 
+					</form>						
 					<a href="{{ url('/main/sair')}}">Sair</a>
 				</div>
 			@else

@@ -32,18 +32,12 @@ class UsuarioController extends Controller
 		}
 		else {
    	 	return view('cadastrarUsuario');
-		} 		
+		}
+    	
+		
+    		
 	}
-	
-	function checarCadastro(Request $request){
-    	$this->validate($request, [
-    		'nome'				=>	'required',
-    		'sobrenome'			=>	'required',
-    		'sexo'            => 'required',
-    		'nascimento'      => 'required|date',
-    		'password'        => 'required|alphaNum|min:8',
-    	]);	 
-	}
+	   
    public function cadastrarUsuario(Request $request) {
 		User::create([
         		'nome'				=> $request->nome,
@@ -56,12 +50,12 @@ class UsuarioController extends Controller
       ]);
 		return redirect("main/");
 	}
-
-
+		
 	public function editarUsuario(Request $request){
 		$user = \feederation\User::find($request->id);
 		return view('editarUsuario',['user'=> $user]);	 
 	}
+	
 			
 	public function atualizarUsuario(Request $request){
 		$user = \feederation\User::find($request->id);

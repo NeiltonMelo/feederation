@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/listar/usuario','UsuarioController@listar');
+Route::get('/editar/usuario{id}','UsuarioController@editar');
+Route::get('/remover/usuario{id}','UsuarioController@remover');
+Route::post('/atualizar/usuario','UsuarioController@atualizar');
+Route::get('/adicionar/usuario', 'UsuarioController@prepararAdicionar');
+Route::post('/adicionar/usuario', 'UsuarioController@adicionar');

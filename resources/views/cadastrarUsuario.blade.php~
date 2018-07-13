@@ -44,28 +44,28 @@
 				
 				<div class="form-group">
 					<label>Nome</label>
-					<input type="text" name="nome" class="form-control" value="" />
+					<input type="text" name="nome" class="form-control" required value="" />
 				</div>
 				<div class="form-group">
 					<label>Sobrenome</label>
-					<input type="text" name="sobrenome" class="form-control" value="" />
+					<input type="text" name="sobrenome" class="form-control" required value="" />
 				</div>		
 				<div class="form-group">
 					<label>Sexo</label>
 					
 					<label class="radio-inline"><input type="radio" name="sexo" 
-					class="radio-inline" value="masculino">Masculino</label>
+					class="radio-inline" required value="masculino">Masculino</label>
   					<label class="radio-inline"><input type="radio" name="sexo" 
-  					class="radio-inline" value="feminino">Feminino</label>
+  					class="radio-inline" required value="feminino">Feminino</label>
 								
 				</div>
 				<div class="form-group">
 					<label>Data de Nascimento</label>
-					<input type="date" name="nascimento" class="form-control" value="" />
+					<input type="date" name="nascimento" class="form-control" required value="" />
 				</div>		
 				<div class="form-group">
 					<label>Senha</label>
-					<input type="password" name="password" class="form-control" value="" />				
+					<input type="password" name="password" class="form-control" required value="" />				
 				</div>
 					<input type="hidden" name="administrador" value="FALSE" />
 				<div class="form-group">

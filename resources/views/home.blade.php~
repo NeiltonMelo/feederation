@@ -26,7 +26,7 @@
 			@if(isset(Auth::user()->email))
 				<?php
 					$persona_id = $_POST['persona_id'];
-					$usuario_id = $_POST['usuario_id'];
+					$usuario_id = Auth::user()->id;
 				?>
 				<div class="alert alert-danger success-block">
 					<strong>Bem-vindo {{Auth::user()->nome}}</strong>
@@ -41,7 +41,7 @@
 					</form>
 					<form method="post" action="{{url('criarPersona')}}">
 						{{ csrf_field() }}
-						<input type="hidden" name="id" value="<?php echo $id;?>" />
+						<input type="hidden" name="id" value="<?php echo $usuario_id;?>" />
 						<input type="submit" name="criarPersona" class="btn btn-primary" value="Criar Persona" />				
 					</form>
 					<a href="{{ url('/main/sair')}}">Sair</a>

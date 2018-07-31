@@ -4,18 +4,21 @@ namespace feederation\Http\Controllers;
 
 use Illuminate\Http\Request;
 use feederation\Persona;
+use feederation\Game;
 use Validator;
+use Auth;
 
 class PersonaController extends Controller
 {
-	public function escolherPersona(Resquest $request){
-		
-		return view ('escolherPersona', ['id'=>$request->id]);	
-	}	
+	
+    public function escolherPersona(){
+		$id = Auth::user()->id;
+    	$personas = \feederation\Persona::where('usuario_id',$id)->get();
+		return view ('/escolherPersona', ['personas' => $personas]);	
+	 }	
 	
 	function personaEscolhida(Request $request){
-		$persona= \feederation\Persona::where('id',$request->get('id'))->first();
-		return view('home', ['persona_id'=>$request->id, 'usuario_id' => $persona->usuario_id]);	 
+		return view('/home', ['persona_id'=>$request->id]);	 
 	}
 	
 	
@@ -34,6 +37,9 @@ class PersonaController extends Controller
         		'game_id'				=> $request->game_nome,
         		'usuario_id'			=>	$request->usuario_id
      	 ]);
+     	$game = \feederation\Game::find($request->game_nome);
+     	$game->numeroUsuarios++;
+     	$game->update();
 		return redirect("/main/loginEfetuado/");
     	
     	

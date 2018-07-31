@@ -7,7 +7,7 @@
 	<table border="1">
 	<tr><td>Nome</td></tr>
 	@foreach ($personas as $persona)
-	<form method="post" action="personaEscolhida">
+	<form method="post" action="/home">
 		{{ csrf_field() }}
 		<tr>
 			<td>{{ $persona->nome }} </td>

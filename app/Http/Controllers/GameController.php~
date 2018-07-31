@@ -1,0 +1,34 @@
+<?php
+
+namespace feederation\Http\Controllers;
+
+use Illuminate\Http\Request;
+use feederation\Game;
+
+class GameController extends Controller
+{
+    public function inserirGame(Request $request) {
+		$this->validate($request, [
+    		'nome'										=>	'required',
+    		'genero'										=>	'required',
+    		'classificacaoIndicativa'				=>	'required',
+    		'lancamento'								=>	'required',
+    	]);
+    	Game::create([
+        		'nome'									=>	$request->nome,
+    			'genero'									=>	$request->genero,
+    			'classificacaoIndicativa'			=>	$request->classificacao,
+    			'lancamento'							=> $request->lancamento,
+        		'numeroUsuarios'						=> 0,
+     	 ]);
+		return redirect("/main/loginEfetuadoAdmin/");
+    	
+    	
+		
+	}
+	
+	public function cadastrarGame(Request $request){
+		return view('/cadastrarGame');
+	}
+
+}

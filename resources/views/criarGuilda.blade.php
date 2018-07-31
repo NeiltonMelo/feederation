@@ -35,13 +35,14 @@
 					</ul>
 				</div>
 			@endif
-			<form method="post" action="inserirGuilda">
-			   {{ csrf_field() }}
-				<?php
+			<?php
 					$id = $_POST['id'];
 				?>
+			<form method="post" action="inserirGuilda">
+			   {{ csrf_field() }}
+				
 				<input type="hidden" name="administrador_id" value="<?php echo $id;?>" />
-				<input type="hidden" name="game_names" value="<?php $game_id = \feederation\Game::select('id')->where('nome', 'wow')->get(); echo $game_id[0] ?>" />
+				
 				<div class="form-group">
 					<label>Nome</label>
 					<input type="text" name="nome" class="form-control" required value="" />

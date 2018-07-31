@@ -36,9 +36,9 @@
 						<input type="hidden" name="id" value="<?php echo $id;?>" />
 						<input type="submit" name="criarGuilda" class="btn btn-primary" value="Criar Guild" />				
 					</form>
-					<form method="post" action="{{url('criarGame')}}">
+					<form method="post" action="cadastrarGame">
 						{{ csrf_field() }}
-						<input type="submit" name="criarGame" class="btn btn-primary" value="Criar Game" />				
+						<input type="submit" name="criarGame" class="btn btn-primary" value="Cadastrar Game" />				
 					</form>
 					<a href="{{ url('/main/sair')}}">Sair</a>
 				</div>

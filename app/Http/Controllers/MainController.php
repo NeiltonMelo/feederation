@@ -32,9 +32,7 @@ class MainController extends Controller
     			return redirect('main/loginEfetuadoAdmin');
     		}
     		else{
-    			$user = \feederation\User::where('email',$request->get('email'))->first();
-    			$personas = \feederation\Persona::where('usuario_id',$user->id)->get();
-				return view ('escolherPersona', ['personas'=> $personas]);	
+				return redirect('escolherPersona');	
 			}    	
     	}
     	else{

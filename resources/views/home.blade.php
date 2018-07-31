@@ -26,7 +26,7 @@
 			@if(isset(Auth::user()->email))
 				<?php
 					$persona_id = $_POST['persona_id'];
-					$usuario_id = $_POST['usuario_id'];
+					$usuario_id = Auth::user()->id;
 				?>
 				<div class="alert alert-danger success-block">
 					<strong>Bem-vindo {{Auth::user()->nome}}</strong>

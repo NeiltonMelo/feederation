@@ -7,7 +7,8 @@ use Validator;
 use Auth;
 
 class MainController extends Controller
-{
+{	 
+	 	 
     function index(){
     	return view('login');    
     }
@@ -25,7 +26,16 @@ class MainController extends Controller
      	
     	
     	if(Auth::attempt($dados_usuario)){
-			return redirect('main/loginEfetuado');
+    		$admin = \feederation\User::where('email',$request->get('email'))->first();
+    		
+    		if($admin->administrador == TRUE) {
+    			return redirect('main/loginEfetuadoAdmin');
+    		}
+    		else{
+    			$user = \feederation\User::where('email',$request->get('email'))->first();
+    			$personas = \feederation\Persona::where('usuario_id',$user->id)->get();
+				return view ('escolherPersona', ['personas'=> $personas]);	
+			}    	
     	}
     	else{
 			return back()->with('error','Você Digitou Algo Errado');
@@ -35,6 +45,10 @@ class MainController extends Controller
     
     function loginEfetuado() {
     	return view('loginEfetuado');
+    }
+    
+    function loginEfetuadoAdmin() {
+    	return view('loginEfetuadoAdmin');
     }
     
     function sair() {

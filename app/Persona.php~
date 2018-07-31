@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model
 {
 	protected $fillable = [
-        'nome','sobrenome','game_id', 'sexo', 'nascimento', 'usuario_id'
+        'nome','sobrenome','game_id', 'sexo', 'nascimento',
     ];	
    public function game_id() {
    	return $this->hasOne('/Game');

@@ -36,6 +36,10 @@
 						<input type="hidden" name="id" value="<?php echo $id;?>" />
 						<input type="submit" name="criarGuilda" class="btn btn-primary" value="Criar Guild" />				
 					</form>
+					<form method="post" action="{{url('criarGame')}}">
+						{{ csrf_field() }}
+						<input type="submit" name="criarGame" class="btn btn-primary" value="Criar Game" />				
+					</form>
 					<a href="{{ url('/main/sair')}}">Sair</a>
 				</div>
 			@else

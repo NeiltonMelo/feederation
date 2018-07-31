@@ -24,17 +24,25 @@
 			<br/>
 			
 			@if(isset(Auth::user()->email))
-				<?php $id = Auth::user()->id;?>
+				<?php
+					$persona_id = $_POST['persona_id'];
+					$usuario_id = $_POST['usuario_id'];
+				?>
 				<div class="alert alert-danger success-block">
 					<strong>Bem-vindo {{Auth::user()->nome}}</strong>
 					<br/>
-					<form method="get" action="{{url('editarUsuario')}}{{$id}}">
+					<form method="get" action="{{url('editarUsuario')}}{{$usuario_id}}">
 						<input type="submit" name="editarUsuario" class="btn btn-primary" value="Editar Usuario" /> 						
 					</form>		
 					<form method="post" action="{{url('criarGuilda')}}">
 						{{ csrf_field() }}
-						<input type="hidden" name="id" value="<?php echo $id;?>" />
+						<input type="hidden" name="id" value="<?php echo $persona_id;?>" />
 						<input type="submit" name="criarGuilda" class="btn btn-primary" value="Criar Guild" />				
+					</form>
+					<form method="post" action="{{url('criarPersona')}}">
+						{{ csrf_field() }}
+						<input type="hidden" name="id" value="<?php echo $usuario_id;?>" />
+						<input type="submit" name="criarPersona" class="btn btn-primary" value="Criar Persona" />				
 					</form>
 					<a href="{{ url('/main/sair')}}">Sair</a>
 				</div>

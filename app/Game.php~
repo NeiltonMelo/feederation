@@ -9,5 +9,8 @@ class Game extends Model
     protected $fillable = [
         'nome','genero','classificacaoIndicativa', 'lancamento', 'numeroUsuarios'
     ];	
-   
+   public function game_id() {
+   	return $this->hasOne('/Game');
+    
+   }
 }

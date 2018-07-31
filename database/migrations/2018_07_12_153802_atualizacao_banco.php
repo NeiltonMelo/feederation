@@ -42,8 +42,8 @@ class AtualizacaoBanco extends Migration
         Schema::table('personas', function (Blueprint $table) {       
             $table->integer('usuario_id')->unsigned();
             $table->integer('game_id')->unsigned();    
-            $table->integer('guilda_id')->unsigned();
-            $table->integer('cargosGuilda_id')->unsigned();
+            $table->integer('guilda_id')->unsigned()->nullable();
+            $table->integer('cargosGuilda_id')->unsigned()->nullable();
             $table->foreign('game_id')->references('id')->on('games');
             $table->foreign('usuario_id')->references('id')->on('users');
             $table->foreign('guilda_id')->references('id')->on('guildas');

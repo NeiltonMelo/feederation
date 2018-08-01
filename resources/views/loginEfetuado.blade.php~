@@ -30,6 +30,9 @@
 					<br/>
 					<form method="get" action="{{url('editarUsuario')}}{{$id}}">
 						<input type="submit" name="editarUsuario" class="btn btn-primary" value="Editar Usuario" /> 
+					</form>
+					<form method="get" action="{{url('cadastrarGame')}}">
+						<input type="submit" name="cadastrarGame" class="btn btn-primary" value="Cadastrar Game" /> 
 					</form>						
 					<a href="{{ url('/main/sair')}}">Sair</a>
 				</div>

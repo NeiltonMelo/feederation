@@ -31,7 +31,7 @@ class UsuarioController extends Controller
    		return back()->with('error','Este e-mail já está em uso');
 		}
 		else {
-   	 	return view('/home');
+   	 	return view('/loginEfetuado');
 		}
     }
 	
@@ -66,7 +66,7 @@ class UsuarioController extends Controller
         		'password'			=>	bcrypt($request->password),
       ]);
 		return view("/home");
-		}
+			}
 	}
 	
 		

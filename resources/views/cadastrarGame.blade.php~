@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 	<head>
-		<title>Login de Usuario</title>	
+
+		<title>Feederation - Criar Persona</title>	
+
 		<script src="https://ajax.googleapis.com/ajax/libs/
 		jquery/3.1.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://
@@ -21,7 +23,9 @@
 	<body>
 		<br />
 		<div class="container box">
+
 			<h3 align="center"> Cadastro Jogo </h3>
+
 			<br/>
 				
 			
@@ -35,8 +39,10 @@
 					</ul>
 				</div>
 			@endif
-			<form method="post" action="cadastrarGame">
-				{{ csrf_field() }}
+
+			<form method="post" action="inserirGame">
+			   {{ csrf_field() }}
+				
 
 				<div class="form-group">
 					<label>Nome</label>
@@ -45,19 +51,19 @@
 				<div class="form-group">
 					<label>Genero</label>
 					<input type="text" name="genero" class="form-control" required value="" />
-				</div>		
+
+				</div>	
 				<div class="form-group">
-					<label>Classificacao Indicativa</label>
-					<input type="text" name="classificacaoIndicativa" class="form-control" required value="" />
-				</div>		
-				
+					<label>Lançamento</label>
+					<input type="text" name="lancamento" class="form-control" required value="" />
+				</div>	
 				<div class="form-group">
-					<label>Data de Lancamento</label>
-					<input type="date" name="lancamento" class="form-control" required value="" />
-				</div>		
-				
+					<label>Classificação Indicativa</label>
+					<input type="text" name="classificacao" class="form-control" required value="" />
+				</div>	
 				<div class="form-group">
-					<input type="submit" name="cadastrar" class="btn btn-primary" value="Cadastrar" />
+					<input type="submit" name="criar" class="btn btn-primary" value="Criar" />
+
 				</div>
 			</form>
 		</div>

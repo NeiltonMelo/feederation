@@ -18,6 +18,11 @@ class User extends Authenticatable
         'nome','sobrenome','administrador', 'nascimento','sexo', 'email', 'password',
     ];
 
+		
+	 public function game_id() {
+   	return $this->hasOne('/Game');
+    
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

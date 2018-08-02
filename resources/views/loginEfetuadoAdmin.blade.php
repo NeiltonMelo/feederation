@@ -29,7 +29,6 @@
 					<strong>Bem-vindo {{Auth::user()->nome}}</strong>
 					<br/>
 					<form method="get" action="{{url('editarUsuario')}}{{$id}}">
-
 						<input type="submit" name="editarUsuario" class="btn btn-primary" value="Editar Usuario" /> 						
 					</form>		
 					<form method="post" action="{{url('criarGuilda')}}">
@@ -37,12 +36,10 @@
 						<input type="hidden" name="id" value="<?php echo $id;?>" />
 						<input type="submit" name="criarGuilda" class="btn btn-primary" value="Criar Guild" />				
 					</form>
-					<form method="post" action="{{url('criarPersona')}}">
+					<form method="post" action="{{url('cadastrarGame')}}">
 						{{ csrf_field() }}
-						<input type="hidden" name="id" value="<?php echo $id;?>" />
-						<input type="submit" name="criarPersona" class="btn btn-primary" value="Criar Persona" />				
+						<input type="submit" name="criarGame" class="btn btn-primary" value="Cadastrar Game" />				
 					</form>
-
 					<a href="{{ url('/main/sair')}}">Sair</a>
 				</div>
 			@else

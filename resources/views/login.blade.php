@@ -23,10 +23,16 @@
 			<h3 align="center"> Login</h3>
 			<br/>
 			
-			@if(isset(Auth::user()->email))			
-				<script>
-					window.location="/main/loginEfetuado";
-				</script>
+			@if(isset(Auth::user()->email))
+				@if(Auth::user()->administrador)		
+					<script>
+						window.location="/main/loginEfetuadoAdmin";
+					</script>
+				@else
+					<script>
+						window.location="/main/loginEfetuado";
+					</script>
+				@endif
 			@endif
 			
 			@if ($mensagem = Session::get('error'))

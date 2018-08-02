@@ -40,10 +40,10 @@
       	  <a class="nav-link" href="#">Personas</a>
       		</li>
       <li class="nav-item">
-        <a class="nav-link" href="/loginEfetuado">Profile</a>
+        <a class="nav-link" href="/home">Profile</a>
      		 	</li>
       <li class="nav-item">
-    		 <a class="nav-link active" href="/main">Sair</a>
+    		 <a class="nav-link active" href="/main/sair">Sair</a>
   				</li>
     </ul>
   </div>

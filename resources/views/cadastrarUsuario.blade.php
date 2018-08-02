@@ -92,7 +92,7 @@
 				</div>
 			@else
 				<script>
-					window.location="/main";
+					
 				</script>
 			@endif
 
@@ -133,7 +133,7 @@
 			@endif
 
 
-			<form method="post" action="{{ url('cadastrarUsuario') }}" >
+			<form method="post" action="cadastrarUsuario" >
 				{{ csrf_field() }}
 				<div class="form-group">
 					<label>Digite seu email:</label>

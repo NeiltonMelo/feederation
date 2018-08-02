@@ -25,7 +25,7 @@ class MainController extends Controller
      	
     	
     	if(Auth::attempt($dados_usuario)){
-			return redirect('main/loginEfetuado');
+			return redirect('/home');
     	}
     	else{
 			return back()->with('error','Você Digitou Algo Errado');
@@ -34,7 +34,7 @@ class MainController extends Controller
     }
     
     function loginEfetuado() {
-    	return view('loginEfetuado');
+    	return view('home');
     }
     
     function sair() {

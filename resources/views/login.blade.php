@@ -31,7 +31,7 @@
         
 		  <strike></strike>@if(isset(Auth::user()->email))			
 				<script>
-					window.location="/main/loginEfetuado";
+					window.location="/home";
 				</script>
 			@endif
 			@if ($mensagem = Session::get('error'))

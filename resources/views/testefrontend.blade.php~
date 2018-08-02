@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feederation: We want you to the feed</title>	
+		<script src="https://ajax.googleapis.com/ajax/libs/
+		jquery/3.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://
+		maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/
+		bootstrap.min.css" />
+		<script src="https://maxcdn.bootstrapcdn.com/
+		bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+			body{
+    				padding-bottom: 40px;
+    				padding-top: 60px;
+				}
+
+			.sidebar-nav-fixed {
+					width:14%;
+									}
+		</style>
+</head>
+<body>
+
+	<div class="navbar navbar-fixed-top navbar-default">
+    <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="#">Project name</a><a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="glyphicon glyphicon-bar"></span>
+          <span class="glyphicon glyphicon-bar"></span>
+          <span class="glyphicon glyphicon-bar"></span>
+        </a>
+
+        </div>
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#" class="">Home</a>
+
+                </li>
+                <li><a href="#about" class="">About</a>
+
+                </li>
+                <li><a href="#contact" class="">Contact</a>
+
+                </li>
+            </ul>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar-nav-fixed affix">
+                <div class="well">
+                    <ul class="nav">
+                        <li class="nav-header">Sidebar</li>
+                        <li class="active"><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li class="nav-header">Sidebar</li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+        <!--/span-->
+        <div class="col-md-6">
+            <div class="jumbotron">
+                 <h1 class="">udr666</h1>
+
+                <p class="">EU TAVA COM MEUS MANOS, LÁ NA MINHA QUEBRADA, CHEGOU O VANDERLEI E VEIO DAR IDEIA ERRADA</p>
+                <p class=""><a class="btn btn-primary btn-lg">Learn more »</a>
+
+                    </p>
+            </div>
+        </div>
+        <!--/span-->
+        <div class="col-md-3">
+            <div class="sidebar-nav-fixed pull-right affix">
+                <div class="well">
+                    <ul class="nav">
+                        <li class="nav-header">Sidebar</li>
+                        <li class="active"><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li class="nav-header">Sidebar</li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!--/.well -->
+            </div>
+            <!--/sidebar-nav-fixed -->
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+    <footer>
+        <p class="">© Feederation 2018</p>
+    </footer>
+</div>
+<!--/.fluid-container-->
+</body>
+</html>

@@ -11,8 +11,6 @@
 
 				<style>
 				body {
-				 font-family: "Lato", sans-serif;	
-				 background-color: #D3D3D3;
    			 padding-bottom: 40px;
     			 padding-top: 60px;
 					}
@@ -33,17 +31,21 @@
 
 <body>
 <!-- menu superior -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top justify-content-between" style="background-color: #111;">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #111;">
   <a class="navbar-brand" href="#">Feederation</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="nav nav-pills navbar-nav">
      	 <li class="nav-item ">
       	  <a class="nav-link" href="#">Personas</a>
       		</li>
       <li class="nav-item">
-        <a class="nav-link" href="/main/loginEfetuado">Profile</a>
+        <a class="nav-link" href="#">Profile</a>
      		 	</li>
       <li class="nav-item">
-    		 <a class="nav-link active" href="/main">Sair</a>
+    		<a class="nav-link" href="/main">Log Out</a>
   				</li>
     </ul>
   </div>
@@ -57,15 +59,46 @@
                 <div class="well">
                     <ul class="nav">
                         <li class="nav-header">Jogos</li>
-                        <li class="active"><a href="#" class="">listagem</a>
-                        <li class="active"><a href="#" class="">listagem</a>
-                        <li class="active"><a href="#" class="">listagem</a>
-                        <li class="active"><a href="#" class="">listagem</a>
-                        <li class="active"><a href="#" class="">listagem</a>
-                        <li class="active"><a href="#" class="">listagem</a>
-                        <li class="active"><a href="#" class="">listagem</a>
-                        <li class="active"><a href="#" class="">listagem</a>
-                        <li class="active"><a href="#" class="">listagem</a>                      
+                        <li class="active"><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                       
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
+                        <li><a href="#" class="">Link</a>
+
+                        </li>
                     </ul>
                 </div>
                 <!--/.well -->
@@ -144,13 +177,9 @@
                 <div class="well">
                     <ul class="nav">
                         <li class="nav-header">Guilda</li>
-                        			<div class="jumbotron">
-                 							<h1 class="">guild info</h1>
-                                	</div>
+                                               </li>
+                        
                         <li class="nav-header">Eventos</li>
-											<div class="jumbotron">
-                 							<h1 class="">guild info</h1>
-                                	</div>
                        
                         </li>
                     </ul>

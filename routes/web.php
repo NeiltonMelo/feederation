@@ -28,7 +28,6 @@ Route::get('/main','MainController@index');
 Route::post('/main/checarLogin','MainController@checarLogin');
 Route::get('/main/loginEfetuado','MainController@loginEfetuado');
 Route::get('/main/sair','MainController@sair');
-Route::get('/cadastrarUsuario','UsuarioController@showCadastrarUsuario');
 
 Route::get('/home','homeController@showHome');
 

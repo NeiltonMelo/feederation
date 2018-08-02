@@ -7,6 +7,7 @@ use feederation\Game;
 
 class GameController extends Controller
 {
+
     public function inserirGame(Request $request) {
 		
     	Game::create([
@@ -27,3 +28,4 @@ class GameController extends Controller
 	}
 
 }
+

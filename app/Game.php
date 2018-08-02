@@ -8,6 +8,5 @@ class Game extends Model
 {
     protected $fillable = [
         'nome','genero','classificacaoIndicativa', 'lancamento', 'numeroUsuarios'
-    ];	
-   
+    ];
 }

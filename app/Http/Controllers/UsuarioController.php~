@@ -14,7 +14,7 @@ class UsuarioController extends Controller
 		$user = \feederation\User::All();
 		return view ('listarUsuarios', ['user'=> $user]);	
 	}
-	
+   
 	public function checarEmail(Request $request){
 		$this->validate($request, [
     		'email'				=>	'required|email',
@@ -31,31 +31,14 @@ class UsuarioController extends Controller
    		return back()->with('error','Este e-mail já está em uso');
 		}
 		else {
-   	 	return view('/loginEfetuado');
+   	 	return view('cadastrarUsuario');
 		}
-    }
-	
-   public function showCadastrarUsuario() {
-    		return view('cadastrarUsuario');
+    	
+		
+    		
 	}
 	   
    public function cadastrarUsuario(Request $request) {
-		$this->validate($request, [
-    		'email'				=>	'required|email',
-    	]);
-    	
-		$dados_email = array(
-			'email'				=>	$request->get('email'),		
-		);  	
-    	$rules = array('email' => 'unique:users,email');
-
-		$validator = Validator::make($dados_email, $rules);
-
-		if ($validator->fails()) {	
-   		return back()->with('error','Este e-mail já está em uso');
-		}
-		else {
-   	 	
 		User::create([
         		'nome'				=> $request->nome,
         		'sobrenome'			=> $request->sobrenome,
@@ -65,10 +48,8 @@ class UsuarioController extends Controller
         		'email'				=>	$request->email,
         		'password'			=>	bcrypt($request->password),
       ]);
-		return view("/home");
-			}
+		return redirect("main/");
 	}
-	
 		
 	public function editarUsuario(Request $request){
 		

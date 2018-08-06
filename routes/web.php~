@@ -27,16 +27,21 @@ Route::post('/inserirPersona', 'PersonaController@inserirPersona');
 
 Route::post('/criarGuilda', 'GuildaController@criarGuilda');
 Route::post('/inserirGuilda', 'GuildaController@inserirGuilda');
+Route::post('/minhasGuildas', 'GuildaController@verMinhasGuildas');
+Route::post('/home/guilda/{nome}', 'GuildaController@verPerfilGuilda');
 
 Route::post('/cadastrarGame', 'GameController@cadastrarGame');
 Route::post('/inserirGame', 'GameController@inserirGame');
 
+Route::post('/Novo Post', 'PostController@criarPost');
+Route::post('/inserirPost', 'PostController@inserirPost');
 
 
 Route::get('/main','MainController@index');
-Route::post('/main/checarLogin','MainController@checarLogin');
+Route::get('/home', 'MainController@showHome');
+Route::post('/checarLogin','MainController@checarLogin');
 Route::get('/escolherPersona','PersonaController@escolherPersona');
-Route::post('/home','PersonaController@personaEscolhida');
+Route::post('personaEscolhida','PersonaController@personaEscolhida');
 Route::get('/main/loginEfetuadoAdmin','MainController@loginEfetuadoAdmin');
 Route::get('/main/loginEfetuado','MainController@loginEfetuado');
 Route::get('/main/sair','MainController@sair');

@@ -5,6 +5,7 @@ namespace feederation\Http\Controllers;
 use Illuminate\Http\Request;
 use feederation\Persona;
 use feederation\Game;
+use feederation\User;
 use Validator;
 use Auth;
 
@@ -18,7 +19,13 @@ class PersonaController extends Controller
 	 }	
 	
 	function personaEscolhida(Request $request){
-		return view('/home', ['persona_id'=>$request->id]);	 
+		$id = Auth::user()->id;
+		$persona = Persona::find($request->persona_id);
+		$user = \feederation\User::find($id);
+		$user->personaPadrao = $request->persona_id;
+		$user->nome_persona = $persona->nome;
+		$user->update();
+		return redirect('/home');	 
 	}
 	
 	
@@ -40,7 +47,7 @@ class PersonaController extends Controller
      	$game = \feederation\Game::find($request->game_nome);
      	$game->numeroUsuarios++;
      	$game->update();
-		return redirect("/main/loginEfetuado/");
+		return redirect("/home");
     	
     	
 		

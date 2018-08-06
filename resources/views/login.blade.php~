@@ -30,7 +30,7 @@
 					</script>
 				@else
 					<script>
-						window.location="/main/loginEfetuadoAdmin";
+						window.location="/main/loginEfetuado";
 					</script>
 				@endif
 			@endif
@@ -52,7 +52,7 @@
 					</ul>
 				</div>
 			@endif
-			<form method="post" action="{{ url('main/checarLogin') }}">
+			<form method="post" action="{{ url('/home') }}">
 				{{ csrf_field() }}
 				<div class="form-group">
 					<label>Email</label>

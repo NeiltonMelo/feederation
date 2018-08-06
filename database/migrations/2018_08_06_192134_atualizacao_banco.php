@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -49,15 +50,19 @@ class AtualizacaoBanco extends Migration
             $table->foreign('guilda_id')->references('id')->on('guildas');
             $table->foreign('cargosGuilda_id')->references('id')->on('cargos_da__guildas');
         });
-        Schema::create('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
         		$table->integer('personaPadrao')->unsigned()->nullable();
+        		$table->string('nome_persona')->nullable();
         		$table->foreign('personaPadrao')->references('id')->on('personas');
+
         });
         Schema::table('eventos', function (Blueprint $table) {    
         		$table->integer('persona_id')->unsigned();;
             $table->integer('game_id')->unsigned();;    
             $table->integer('guilda_id')->unsigned();;  
             $table->foreign('game_id')->references('id')->on('games');
+            $table->string('nome_persona');
+            $table->string('nome_guilda')->nullable();
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('guilda_id')->references('id')->on('guildas');
             
@@ -69,6 +74,13 @@ class AtualizacaoBanco extends Migration
             $table->foreign('usuarioDestino_id')->references('id')->on('users');
             $table->foreign('usuarioRemetente_id')->references('id')->on('users');
             
+        });
+        
+        Schema::table('posts', function (Blueprint $table) {    
+            $table->integer('persona_id')->unsigned();   
+            $table->integer('guilda_id')->unsigned()->nullable();
+            $table->foreign('persona_id')->references('id')->on('personas');
+            $table->foreign('guilda_id')->references('id')->on('guildas');
         });
     }
 

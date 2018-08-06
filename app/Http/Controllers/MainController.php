@@ -4,6 +4,7 @@ namespace feederation\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use feederation\Post;
 use Auth;
 
 class MainController extends Controller
@@ -26,13 +27,18 @@ class MainController extends Controller
      	
     	
     	if(Auth::attempt($dados_usuario)){
-    		$admin = \feederation\User::where('email',$request->get('email'))->first();
+    		$usuario = \feederation\User::where('email',$request->get('email'))->first();
     		
-    		if($admin->administrador == TRUE) {
+    		if($usuario->administrador == TRUE) {
     			return redirect('main/loginEfetuadoAdmin');
     		}
     		else{
-				return redirect('escolherPersona');	
+    			if($usuario->personaPadrao == NULL){ 
+					return redirect('escolherPersona');	
+				}
+				else {
+					return redirect('/home'); 
+				}
 			}    	
     	}
     	else{
@@ -40,6 +46,11 @@ class MainController extends Controller
     	}
     
     }
+    
+    function showHome() {
+    	$posts = \feederation\Post::all();
+		return view('home', ['posts' =>$posts]);    
+    }	    
     
     function loginEfetuado() {
     	return view('loginEfetuado');

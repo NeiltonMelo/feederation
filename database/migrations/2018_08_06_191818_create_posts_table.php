@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGuildasTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateGuildasTable extends Migration
      */
     public function up()
     {
-        Schema::create('guildas', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome')->unique();
+            $table->string('conteudo');
+
             $table->timestamps();
         });
-        
-        
-            
     }
 
     /**
@@ -30,6 +28,7 @@ class CreateGuildasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guildas');
+        Schema::dropIfExists('posts');
     }
 }
+

@@ -7,7 +7,7 @@
 	<table border="1">
 	<tr><td>Nome</td></tr>
 	@foreach ($personas as $persona)
-	<form method="post" action="/home">
+	<form method="post" action="/personaEscolhida">
 		{{ csrf_field() }}
 		<tr>
 			<td>{{ $persona->nome }} </td>
@@ -19,6 +19,12 @@
 	</form>
 	@endforeach
 	</table>
+	<?php $id = Auth::user()->id;?>
+	<form method="post" action="{{url('criarPersona')}}">
+		{{ csrf_field() }}
+		<input type="hidden" name="id" value="<?php echo $id;?>" />
+		<input type="submit" name="criarPersona" class="btn btn-primary" value="Criar Persona" />				
+	</form>
 
 </body>       
 </html>

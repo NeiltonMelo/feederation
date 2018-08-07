@@ -9,12 +9,7 @@ class GameController extends Controller
 {
 
     public function inserirGame(Request $request) {
-		$this->validate($request, [
-    		'nome'										=>	'required',
-    		'genero'										=>	'required',
-    		'classificacaoIndicativa'				=>	'required',
-    		'lancamento'								=>	'required',
-    	]);
+		
     	Game::create([
         		'nome'									=>	$request->nome,
     			'genero'									=>	$request->genero,

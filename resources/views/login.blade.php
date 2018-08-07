@@ -52,7 +52,7 @@
 					</ul>
 				</div>
 			@endif
-			<form method="post" action="{{ url('main/checarLogin') }}">
+			<form method="post" action="{{ url('/checarLogin') }}">
 				{{ csrf_field() }}
 				<div class="form-group">
 					<label>Email</label>

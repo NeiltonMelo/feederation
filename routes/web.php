@@ -40,7 +40,7 @@ Route::post('/minhasGuildas', 'GuildaController@verMinhasGuildas');
 Route::post('/home/guilda/{nome}', 'GuildaController@verPerfilGuilda');
 Route::post('/home/guilda/{nome}/adicionarMembro', 'GuildaController@adicionarMembro');
 Route::post('/home/guilda/{nome}/solicitacaoMembro', 'GuildaController@solicitacaoMembro');
-Route::post('/solicitacoesPersonas', 'GuildaController@solicitacoesPersonas');
+Route::post('/home/guilda/{nome}/solicitacoesPersonas', 'GuildaController@solicitacoesPersonas');
 Route::post('/home/guilda/{nome}/aceitarSolicitacaoPersona','GuildaController@aceitarSolicitacaoPersona');
 
 Route::post('/cadastrarGame', 'GameController@cadastrarGame');

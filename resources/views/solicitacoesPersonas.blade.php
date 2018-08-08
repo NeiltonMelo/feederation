@@ -8,7 +8,7 @@
 	<tr><td>Nome</td> </tr>
 		
 	@foreach ($solicitacoes as $solicitacao)
-	<form method="post" action="'/home/guilda/{{}}/aceitarSolicitacaoPersona'">
+	<form method="post" action="/home/guilda/{{$nome}}/aceitarSolicitacaoPersona">
 		{{ csrf_field() }}
 		<tr>
 			<?php

@@ -27,7 +27,10 @@
 		<input type="submit" name="home" class="btn btn-primary" value="Adicionar Membro" />
 	@endif
 	</form>
-	<form method="post" action="/solicitacoesPersonas">	
+	<form method="post" action="/home/guilda/{{$nome}}/solicitacoesPersonas">
+		{{csrf_field() }}	
+		<input type="hidden" name="nome" value="{{$nome}}" />
+		<input type="hidden" name="guilda_id" value="{{$guilda_id}}" />
 		<input type="submit" name="solicitacoes" class="btn btn-primary" value="Solicitacoes" />
 	</form>
 	

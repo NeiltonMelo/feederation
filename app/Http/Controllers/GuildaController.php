@@ -91,7 +91,7 @@ class GuildaController extends Controller
 		$guilda = \feederation\Guilda::find($persona->guilda_id);
 		$solicitacoes = \feederation\Solicitacao_de_Guilda::where('guilda_id', $persona->guilda_id)
 																		->where('confirmacaoUsuario',TRUE)->get(); 	
-		return view("/solicitacoesPersonas",['solicitacoes' => $solicitacoes]);
+		return view("/solicitacoesPersonas",['nome'=>$request->nome,'solicitacoes' => $solicitacoes]);
 	}	
 	
 	

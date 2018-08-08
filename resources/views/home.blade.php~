@@ -27,6 +27,7 @@
 				<?php
 					$persona_id = Auth::user()->personaPadrao;
 					$usuario_id = Auth::user()->id;
+					$posts = $_POST['posts'];
 				?>
 				<div class="alert alert-danger success-block">
 					<strong>Bem-vindo {{Auth::user()->nome}} logado como {{Auth::user()->nome_persona }} </strong>
@@ -34,7 +35,7 @@
 					<form method="get" action="{{url('editarUsuario')}}{{$usuario_id}}">
 						<input type="submit" name="editarUsuario" class="btn btn-primary" value="Editar Usuario" /> 						
 					</form>	
-					<form method="post" action="{{url('escolherPersona')}}">
+					<form method="get" action="{{url('escolherPersona')}}">
 						<input type="submit" name="editarUsuario" class="btn btn-primary" value="Escolher Persona" /> 						
 					</form>	
 					<form method="post" action="{{url('minhasGuildas')}}">

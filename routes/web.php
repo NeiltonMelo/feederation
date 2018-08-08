@@ -26,10 +26,10 @@ Route::get('/atualizarUsuario','UsuarioController@atualizarUsuario');
 Route::post('/checarEmail', 'UsuarioController@checarEmail');
 Route::post('/cadastrarUsuario', 'UsuarioController@cadastrarUsuario');
 Route::post('/solicitacoes', 'UsuarioController@solicitacoes');
-
 Route::post('/procurarGuilda','UsuarioController@procurarGuilda');
 Route::post('/solicitacoesGuildas', 'UsuarioController@solicitacoesGuildas');
-Route::post('/aceitarSolicitacaoGuilda','UsuarioController@aceitarSolicitacaoGuilda');
+
+Route::post('/solicitacaoGuilda','UsuarioController@solicitacaoGuilda');
 
 Route::post('/criarPersona', 'PersonaController@criarPersona');
 Route::post('/inserirPersona', 'PersonaController@inserirPersona');
@@ -40,9 +40,8 @@ Route::post('/minhasGuildas', 'GuildaController@verMinhasGuildas');
 Route::post('/home/guilda/{nome}', 'GuildaController@verPerfilGuilda');
 Route::post('/home/guilda/{nome}/adicionarMembro', 'GuildaController@adicionarMembro');
 Route::post('/home/guilda/{nome}/solicitacaoMembro', 'GuildaController@solicitacaoMembro');
-
-Route::post('/home/guilda/{nome}/aceitarSolicitacaoGuilda','GuildaController@aceitarSolicitacaoGuilda');
-Route::post('/home/guilda/{nome}/solicitacoesGuilda', 'GuildaController@solicitacoesGuilda');
+Route::post('/solicitacoesPersonas', 'GuildaController@solicitacoesPersonas');
+Route::post('/home/guilda/{nome}/aceitarSolicitacaoPersona','GuildaController@aceitarSolicitacaoPersona');
 
 Route::post('/cadastrarGame', 'GameController@cadastrarGame');
 Route::post('/inserirGame', 'GameController@inserirGame');

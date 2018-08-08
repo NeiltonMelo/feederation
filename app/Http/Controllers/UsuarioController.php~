@@ -7,6 +7,7 @@ use feederation\User;
 use Validator;
 use Input;
 use Auth;
+use feederation\Solicitacao_de_Guilda;
 
 class UsuarioController extends Controller
 {
@@ -77,11 +78,6 @@ class UsuarioController extends Controller
 		return redirect("/listarUsuarios");
 	}
 	
-	public function procurarGuilda(Request $request){
-		$guildas = \feederation\Guilda::All();		
-		return view('/procurarGuilda', ['guildas' => $guildas]);	
-	}
-	
 	public function solicitacoes() {
 		$solicitacoes = \feederation\Solicitacao_de_Amizade::where('personaDestino_id', Auth::user()->personaPadrao)->get(); 	
 		return view("/solicitacoesAmizade",['solicitacoes' => $solicitacoes]);
@@ -107,27 +103,32 @@ class UsuarioController extends Controller
 	}
 	
 	public function procurarGuilda(Request $request){
-		$guildas = \feederation\Guilda::where('nome', '!=',$request->nome);
+		$minhaPersona = \feederation\Persona::find(Auth::user()->personaPadrao);
+		$guildas = \feederation\Guilda::where('nome',$request->nome)
+												->where('id', '!=',$minhaPersona->guilda_id)
+												->get();
 		return view('/procurarGuilda',['nome' => $request->nome,'guildas' => $guildas,'error' => FALSE]);
 	}
 	
-	public function solicitacaoMembro(Request $request){
-		$persona = \feederation\Persona::find(Auth::user()->personaPadrao);	
-		$guilda = \feederation\Guilda::find($persona->guilda_id);
+	public function solicitacaoGuilda(Request $request){
+		$minhaPersona = \feederation\Persona::find(Auth::user()->personaPadrao);
+		$guildas = \feederation\Guilda::where('nome',$request->nome)
+												->where('id', '!=',$minhaPersona->guilda_id)
+												->get();
 		$solicitacoes = \feederation\Solicitacao_de_Guilda::where
-							('persona_id', $request->persona_id)->where
-							('guilda_id',$persona->guilda_id)->get();
+							('guilda_id', $request->guilda_id)->where
+							('persona_id',$minhaPersona->id)->get();
 		if($solicitacoes->count() > 0) {
 			$personas = \feederation\Persona::where('guilda_id', '!=',Auth::user()->guilda_id)
 												->orWhereNull('guilda_id')->get();
-			return view('/adicionarMembro',['error' => TRUE, 'personas' => $personas,'nome'=>$guilda->nome]);
+			return view('/procurarGuilda',['error' => TRUE, 'nome' => $request->nome,'guildas' => $guildas]);
 		}
 		else{
 			Solicitacao_de_Guilda::create([
-        			'persona_id'				=> $request->persona_id,
-        			'guilda_id'					=> $guilda->id,
-        			'confirmacaoGuilda'		=>	TRUE,
-        			'confirmacaoUsuario'		=>	FALSE,
+        			'guilda_id'				=> $request->guilda_id,
+        			'persona_id'					=> $guilda->id,
+        			'confirmacaoGuilda'		=>	FALSE,
+        			'confirmacaoUsuario'		=>	TRUE,
       	]);
 			return redirect('/home');
 		}

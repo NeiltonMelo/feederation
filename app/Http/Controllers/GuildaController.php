@@ -86,8 +86,26 @@ class GuildaController extends Controller
       return redirect('\home');
 	}
 	
-	public function solicitacoesGuilda(){
-		$solicitacoes;
+	public function solicitacoesPersonas(Request $request) {
+		$persona = \feederation\Persona::find(Auth::user()->personaPadrao);
+		$guilda = \feederation\Guilda::find($persona->guilda_id);
+		$solicitacoes = \feederation\Solicitacao_de_Guilda::where('guilda_id', $persona->guilda_id)
+																		->where('confirmacaoUsuario',TRUE)->get(); 	
+		return view("/solicitacoesPersonas",['solicitacoes' => $solicitacoes]);
+	}	
+	
+	
+	public function aceitarSolicitacaoPersona(Request $request){
+		$solicitacao = \feederation\Solicitacao_de_Guilda::find($request->solicitacao_id);
+		$persona = \feederation\Persona::find($solicitacao->persona_id);
+		$solicitacoes = \feederation\Solicitacao_de_Guilda::where('persona_id',$persona->id)->get();
+		$persona->guilda_id = $solicitacao->guilda_id;
+		$persona->update();
+		$solicitacao->delete();
+		foreach($solicitacoes as $solicit){
+			$solicit->delete();
+		}
+      return redirect('\home');
 	}
 
 

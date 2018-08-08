@@ -35,9 +35,8 @@ class GuildaController extends Controller
 		}		
 		return view('/verGuilda', ['guildas' => $guildas]);	
 	}
-	
+						 
 	public function verPerfilGuilda(Request $request){
-		return view('/home');
 		$membros = \feederation\Persona::where('guilda_id', $request->guilda_id)->get();		
 		return view('/perfilGuilda', ['membros' => $membros, 'nome' => $request->nome]);	
 	

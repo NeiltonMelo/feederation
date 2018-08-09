@@ -23,7 +23,7 @@ class GuildaController extends Controller
 		return redirect("/home");
 	}
 	public function criarGuilda(Request $request){
-		return view('/criarGuilda', ['id' => $request->id]);
+		return view('/criarGuilda');
 	}
 	
 	public function verMinhasGuildas(){
@@ -42,5 +42,13 @@ class GuildaController extends Controller
 	
 	}
 	
-
+	public function sairGuilda(){
+		$persona = \feederation\Persona::find(Auth::user()->personaPadrao);
+		$persona->guilda_id = NULL;
+		if($persona->cargosGuilda != NULL) {
+			$persona->cargosGuilda = NULL;
+		}
+		$persona->update();	
+		return redirect('/home');
+	}
 }

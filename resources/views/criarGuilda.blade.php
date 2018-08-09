@@ -36,7 +36,7 @@
 				</div>
 			@endif
 			<?php
-					$id = $_POST['id'];
+					$id = Auth::user()->personaPadrao;
 				?>
 			<form method="post" action="inserirGuilda">
 			   {{ csrf_field() }}

@@ -51,6 +51,7 @@ class MainController extends Controller
     	$posts = \feederation\Post::all();
 		return view('home', ['posts' =>$posts]);    
     }	    
+    
     function loginEfetuado() {
     	return view('loginEfetuado');
     }

@@ -7,7 +7,7 @@
 	<table border="1">
 	<tr><td>Nome</td></tr>
 	@foreach ($guildas as $guilda)
-	<form method="get" action="/home/guilda/{{$guilda->nome}}">
+	<form method="get" action="/home/guild/{{$guilda->nome}}">
 		{{ csrf_field() }}
 		<tr>
 			<td>{{ $guilda->nome }}  :: Game = {{ $guilda->game_id }} </td>

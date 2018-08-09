@@ -30,7 +30,7 @@
 					</script>
 				@else
 					<script>
-						window.location="/home";
+						window.location="/main/loginEfetuado";
 					</script>
 				@endif
 			@endif

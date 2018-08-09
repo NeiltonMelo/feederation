@@ -58,6 +58,10 @@ body {
             <li class="nav-item">
               <a class="nav-link" href="#">Perfil</a>
             </li>
+				<li class="nav-item">
+              <a class="nav-link" href="#">Personas</a>
+            </li>
+                        
             <li class="nav-item">
               <a class="nav-link" href="#">Amigos</a>
             </li>

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home - Start Bootstrap Template</title>
+    <title>Home - Feederation</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,8 +41,9 @@ body {
 </style>
 
 <script type="text/javascript" >
-+ function($) {
+ function($) {
     'use strict';
+
     var dropZone = document.getElementById('drop-zone');
     var uploadForm = document.getElementById('js-upload-form');
 
@@ -97,11 +98,7 @@ body {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/home">Perfil</a>
-            </li>
-				<li class="nav-item">
-              <a class="nav-link" href="#">Personas</a>
-            </li>
-                        
+            </li>         
             <li class="nav-item">
               <a class="nav-link" href="{{url('escolherPersona')}}">Personas</a>
 				</li>

@@ -50,7 +50,7 @@ Route::get('/main/loginEfetuadoAdmin','MainController@loginEfetuadoAdmin');
 Route::get('/main/loginEfetuado','MainController@loginEfetuado');
 Route::get('/main/sair','MainController@sair');
 
-Route::get('/home','homeController@showHome');
+
 
 
 

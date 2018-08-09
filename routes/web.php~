@@ -22,6 +22,7 @@ Route::get('/atualizarUsuario','UsuarioController@atualizarUsuario');
 Route::post('/checarEmail', 'UsuarioController@checarEmail');
 Route::post('/cadastrarUsuario', 'UsuarioController@cadastrarUsuario');
 Route::get('/cadastrarGame','GameController@cadastrarGame');
+Route::post('/inserirGame', 'GameController@inserirGame');
 
 Route::post('/criarPersona', 'PersonaController@criarPersona');
 Route::post('/inserirPersona', 'PersonaController@inserirPersona');
@@ -29,7 +30,9 @@ Route::post('/inserirPersona', 'PersonaController@inserirPersona');
 Route::post('/criarGuilda', 'GuildaController@criarGuilda');
 Route::post('/inserirGuilda', 'GuildaController@inserirGuilda');
 Route::post('/minhasGuildas', 'GuildaController@verMinhasGuildas');
+Route::post('/sairGuilda', 'GuildaController@sairGuilda');
 Route::post('/home/guilda/{nome}', 'GuildaController@verPerfilGuilda');
+
 
 Route::post('/cadastrarGame', 'GameController@cadastrarGame');
 Route::post('/inserirGame', 'GameController@inserirGame');

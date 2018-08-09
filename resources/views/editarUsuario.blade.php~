@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>Editar Usuario - Feederation</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -127,32 +127,32 @@ text-align:center;
 <div class="main-div">
     <div class="panel">
    <h2>Atualizar suas informações</h2>
-   <p>Altere um dos campos abaixo</p>
+   <p>Altere os campos abaixo</p>
    </div>
-    <form id="Login">
+    <form action="atualizarUsuario" method="get" id="Login">
 
         <div class="form-group">
 
 
-            <input type="email" class="form-control" id="nome" placeholder="Nome">
+            <input name="nome" type="text" class="form-control" id="nome" value="{{$user->nome}}">
 
         </div>
 
 			<div class="form-group">
 
 
-            <input type="email" class="form-control" id="sobrenome" placeholder="Sobrenome">
+            <input name="sobrenome" type="text" class="form-control" id="sobrenome" value="{{$user->sobrenome}}">
 
         </div>
 			
 			<div class="form-group">
 
 
-            <input type="email" class="form-control" id="email" placeholder="E-mail">
+            <input name="email" type="email" class="form-control" id="email" value="{{$user->email}}">
 
         </div>
         
-        <button type="submit" class="btn btn-primary">Atualizar</button>
+        <input type="submit" name="atualizar" class="btn btn-primary" value="Atualizar" />
 
     </form>
     </div>

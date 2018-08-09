@@ -119,7 +119,7 @@ text-align:center;
               <a class="nav-link" href="{{url('escolherPersona')}}">Personas</a>
 				</li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Amigos</a>
+              <a class="nav-link" href="/home">Amigos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/main/sair')}}">Sair</a>

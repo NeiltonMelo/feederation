@@ -129,19 +129,20 @@ text-align:center;}
    <h2>Cadastro de Guilda</h2>
    <p>Preencha os campos abaixo</p>
    </div>
-    <form id="Login">
+    <form method="post" action="inserirGuilda" id="Login">
+    {{ csrf_field() }}
 			<div>			
 				<img src="img/guild_image.jpeg" class="img-fluid" alt="Responsive image">
    		</div>     
         <br>
         <div class="form-group">
 
-            <input type="email" class="form-control" id="nome" placeholder="Nome da guilda">
-
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome da guilda">
+				
         </div>
 
         
-        <button type="submit" class="btn btn-primary">Cadastrar guilda</button>
+        <input type="submit" name="criar" class="btn btn-primary" value="Criar Guilda" />
 
     </form>
     </div>

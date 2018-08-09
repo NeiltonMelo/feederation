@@ -15,10 +15,10 @@ class AtualizacaoBanco extends Migration
     public function up()
     {
         Schema::table('amigos',function (Blueprint $table) {
-        		$table->integer('usuario_id')->unsigned();
-            $table->integer('usuarioAmigo_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('users');
-            $table->foreign('usuarioAmigo_id')->references('id')->on('users');
+        		$table->integer('persona_id')->unsigned();
+            $table->integer('personaAmigo_id')->unsigned();
+            $table->foreign('persona_id')->references('id')->on('personas');
+            $table->foreign('personaAmigo_id')->references('id')->on('personas');
         });
         
         Schema::table('solicitacao_de__guildas', function (Blueprint $table) {
@@ -69,10 +69,10 @@ class AtualizacaoBanco extends Migration
         });
         
         Schema::table('solicitacao_de__amizades', function (Blueprint $table) {    
-        		$table->integer('usuarioDestino_id')->unsigned();
-            $table->integer('usuarioRemetente_id')->unsigned();   
-            $table->foreign('usuarioDestino_id')->references('id')->on('users');
-            $table->foreign('usuarioRemetente_id')->references('id')->on('users');
+        		$table->integer('personaDestino_id')->unsigned();
+            $table->integer('personaRemetente_id')->unsigned();   
+            $table->foreign('personaDestino_id')->references('id')->on('persona');
+            $table->foreign('personaRemetente_id')->references('id')->on('persona');
             
         });
         

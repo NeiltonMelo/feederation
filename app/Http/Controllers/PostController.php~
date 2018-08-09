@@ -12,6 +12,7 @@ class PostController extends Controller
 		
     	Post::create([
         		'conteudo'				=> $request->conteudo,
+        		'titulo'					=> $request->titulo,
         		'persona_id' 			=> $request->persona_id,
         		'guilda_id'				=> $request->guild_id,
      	 ]);

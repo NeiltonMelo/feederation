@@ -55,7 +55,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url('escolherPersona')}}">Personas</a>
 				</li>
-            
+            <li class="nav-item">
+              <a class="nav-link" href="/listarAmigos">Amigos</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/main/sair')}}">Sair</a>
             </li>
@@ -67,35 +69,35 @@
 
     <section class="testimonials text-center">
       <div class="container">
-        <h2 class="mb-5">Escolha sua persona</h2>
+        <h2 class="mb-5">Seus amigos</h2>
+        
+
+
+
+
+
         <div class="row">
-         <?php $i = 0; ?>
-        	@foreach ($personas as $persona)
+        	@foreach ($amigos as $amigo)
+        	<?php
+				$persona = \feederation\Persona::find($amigo->personaAmigo_id);
+				$jogo = \feederation\Game::find($persona->game_id);
+				$nomeCompleto = $persona->nome ." ".$persona->sobrenome;
+			?>
           <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
               <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-              <h5>{{$persona->nome}} {{$persona->sobrenome}}</h5>
-              <h5>{{$nomes[$i]}}</h5>
-             <form method="post" action="/personaEscolhida">
-             	{{ csrf_field() }}
-             	<input type="hidden" name="persona_id" value="{{ $persona->id }}" />
-					<input type="submit" name="home" class="btn btn-primary" value="Escolher" />
-				 </form>
+              <h5>{{ $nomeCompleto}} </h5>
+              <h5>{{ $jogo->nome}}</h5>
             </div>
           </div>
-        <?php $i++; ?>
+        
          @endforeach
           
           <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
               <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
-              <h5>Adicionar persona</h5>
-              <?php $id = Auth::user()->id;?>
-				  <form method="post" action="{{url('criarPersona')}}">
-				 	 {{ csrf_field() }}
-					 <input type="hidden" name="id" value="<?php echo $id;?>" />
-					 <input type="submit" name="criarPersona" class="btn btn-primary" value="Criar Persona" />				
-				  </form>
+              <h5>Voltar</h5>
+              
             </div>
           </div>
         </div>

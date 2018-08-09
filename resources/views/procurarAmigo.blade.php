@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
   <head>
@@ -71,6 +72,7 @@
 			<strong>Esta persona já solicitou sua amizade!</strong>
 		</div>
 	@endif	
+
 
     <section class="testimonials text-center">
       <div class="container">

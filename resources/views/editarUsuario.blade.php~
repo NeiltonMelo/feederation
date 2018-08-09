@@ -133,7 +133,8 @@ text-align:center;
 
         <div class="form-group">
 
-
+				<input type="hidden" name="id" value="{{$user->id}}" />				
+				
             <input name="nome" type="text" class="form-control" id="nome" value="{{$user->nome}}">
 
         </div>

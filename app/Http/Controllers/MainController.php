@@ -7,7 +7,9 @@ use Validator;
 use feederation\Post;
 use feederation\Game;
 use feederation\Guilda;
+use feederation\Amigo;
 use Auth;
+
 
 class MainController extends Controller
 {	 
@@ -50,7 +52,6 @@ class MainController extends Controller
     }
     
     function showHome() {
-    	$posts = \feederation\Post::all();
     	$persona = \feederation\Persona::find(Auth::user()->personaPadrao);
     	$sobrenomePersona = $persona->sobrenome;
     	$game = \feederation\Game::find($persona->game_id);
@@ -80,8 +81,16 @@ class MainController extends Controller
 				}  	
     		}
     	}
+    	$posts = \feederation\Post::where('persona_id', $persona->id)->get();
+    	$amigos = \feederation\Amigo::where('persona_id',Auth::user()->personaPadrao)->get();
+    	foreach($amigos as $amigo){
+    		$postsaux = \feederation\Post::where('persona_id', $amigo->personaAmigo_id)->get();
+    		$posts = $posts->merge($postsaux);
+    	}
+    	$posts2 = $posts->sortByDesc('created_at');
 		return view('/home', ['nomeGuilda' => $nomeGuilda,
-									'posts' => $posts,
+									'guilda'		=>	$guilda,
+									'posts' => $posts2,
 									'personaGameNome' => $persona_game_nome,
 									'sobrenomePersona' => $sobrenomePersona,
 									'membrosGuilda' => $nomes,

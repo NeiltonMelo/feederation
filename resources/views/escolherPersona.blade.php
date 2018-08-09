@@ -48,16 +48,12 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/home">Perfil</a>
-            </li>
+            
 				      
             <li class="nav-item">
               <a class="nav-link" href="{{url('escolherPersona')}}">Personas</a>
 				</li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Amigos</a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/main/sair')}}">Sair</a>
             </li>

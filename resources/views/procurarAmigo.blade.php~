@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
   <head>
@@ -71,6 +72,7 @@
 			<strong>Esta persona já solicitou sua amizade!</strong>
 		</div>
 	@endif	
+<<<<<<< HEAD
 
     <section class="testimonials text-center">
       <div class="container">
@@ -80,13 +82,27 @@
         	@foreach ($personas as $persona)
           <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-              <h5>{{$persona->nome}} {{$persona->sobrenome}}</h5>
-              <h5>{{$nomes[$i]}}</h5>
-             <form method="post" action="/personaEscolhida">
+              
+             <form method="post" action="/adicionarAmigo">
              	{{ csrf_field() }}
-             	<input type="hidden" name="persona_id" value="{{ $persona->id }}" />
-					<input type="submit" name="home" class="btn btn-primary" value="Escolher" />
+             	<?php
+						$jogo = \feederation\Game::find($persona->game_id);
+						$amigo = \feederation\Amigo::where('persona_id',$persona->id)
+															  ->where('personaAmigo_id',Auth::user()->personaPadrao)
+															  ->get();
+						$nomeCompleto = $persona->nome ." ".$persona->sobrenome;
+					?>
+					@if ($persona->usuario_id == Auth::user()->id)
+						@continue;
+					@elseif ($amigo->count() > 0)
+						@continue;
+					@endif
+					<img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
+              <h5>{{ $nomeCompleto }}</h5>
+              <h5>{{ $jogo->nome}} </h5>
+             	<input type="hidden" name="nome" value="{{$persona->nome}}"/>
+					<input type="hidden" name="persona_id" value="{{$persona->id}}"/>
+					<input type="submit" name="home" class="btn btn-primary" value="Solicitar amizade" />
 				 </form>
             </div>
           </div>
@@ -151,4 +167,37 @@
 
   </body>
 
+=======
+	<table border="1">
+	<tr><td>Nome</td><td>Jogo</td></tr>
+	@foreach ($personas as $persona)
+	<form method="post" action="/adicionarAmigo">
+		{{ csrf_field() }}
+		<tr>
+			<?php
+				$jogo = \feederation\Game::find($persona->game_id);
+				$amigo = \feederation\Amigo::where('persona_id',$persona->id)
+													->where('personaAmigo_id',Auth::user()->personaPadrao)
+													->get();
+				$nomeCompleto = $persona->nome ." ".$persona->sobrenome;
+			?>
+			@if ($persona->usuario_id == Auth::user()->id)
+				@continue;
+			@elseif ($amigo->count() > 0)
+				@continue;
+			@endif
+			
+			<td>{{ $nomeCompleto}}  :: Usuario = {{ $persona->usuario_id }} </td>
+			<td>{{ $jogo->nome}} </td>
+			<td>
+				<input type="hidden" name="nome" value="{{$persona->nome}}"/>
+				<input type="hidden" name="persona_id" value="{{$persona->id}}"/>
+				<input type="submit" name="home" class="btn btn-primary" value="Solicitar amizade" />
+			</td>
+		</tr>				
+	</form>
+	@endforeach
+	</table>	
+</body>
+>>>>>>> 753e6f0f8bd83dd3da71c6740f2c96afdf9f4cb3
 </html>

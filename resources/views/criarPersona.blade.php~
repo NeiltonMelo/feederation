@@ -134,6 +134,10 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
          <div class="form-group">
 					<select class="form-control">
   							<option>Jogos</option>
+  							<option>Jogos</option>
+  							<option>Jogos</option>
+  							<option>Jogos</option>
+  							<option>Jogos</option>
 					</select>
         </div>
         

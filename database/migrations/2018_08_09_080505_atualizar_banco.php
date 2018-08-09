@@ -83,7 +83,12 @@ class AtualizacaoBanco extends Migration
             $table->foreign('guilda_id')->references('id')->on('guildas');
             
             
-       	
+       	            $table->integer('post_id')->unsigned();
+        });
+        
+        Schema::table('imagensPosts', function (Blueprint $table) {    
+            $table->integer('post_id')->unsigned();
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('CASCADE');
         });
     }
 

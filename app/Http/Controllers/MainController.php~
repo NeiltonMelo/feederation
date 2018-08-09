@@ -36,7 +36,7 @@ class MainController extends Controller
     		}
     		else{
     			if($usuario->personaPadrao == NULL){ 
-					return redirect('/home');	
+					return redirect('escolherPersona');	
 				}
 				else {
 					return redirect('/home'); 

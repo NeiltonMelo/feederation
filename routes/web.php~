@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/listarUsuarios','UsuarioController@listarUsuarios');
-Route::get('/editarUsuario{id}','UsuarioController@editarUsuario');
+Route::post('/editarUsuario{id}','UsuarioController@editarUsuario');
 Route::get('/remover/usuario{id}','UsuarioController@remover');
 Route::get('/atualizarUsuario','UsuarioController@atualizarUsuario');
 Route::post('/checarEmail', 'UsuarioController@checarEmail');
@@ -25,7 +25,7 @@ Route::get('/cadastrarGame','GameController@cadastrarGame');
 Route::post('/inserirGame', 'GameController@inserirGame');
 
 Route::post('/criarPersona', 'PersonaController@criarPersona');
-Route::get('/inserirPersona', 'PersonaController@inserirPersona');
+Route::post('/inserirPersona', 'PersonaController@inserirPersona');
 
 Route::post('/criarGuilda', 'GuildaController@criarGuilda');
 Route::post('/inserirGuilda', 'GuildaController@inserirGuilda');

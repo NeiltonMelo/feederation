@@ -48,7 +48,7 @@ class UsuarioController extends Controller
         		'email'				=>	$request->email,
         		'password'			=>	bcrypt($request->password),
       ]);
-		return redirect('criarPersona');
+		return redirect('/home');
 	}
 		
 	public function editarUsuario(Request $request){

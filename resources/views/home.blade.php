@@ -43,8 +43,6 @@ body {
 <script type="text/javascript" >
 + function($) {
     'use strict';
-================
-
     var dropZone = document.getElementById('drop-zone');
     var uploadForm = document.getElementById('js-upload-form');
 
@@ -170,24 +168,7 @@ body {
       </div>
     </div>
   </div>
-</div>
-  				
-  				
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  				
-  				
-  				
-  				
-  				
-  				
-  				
+</div> 				
   				
 				</div>	
 			</div>

@@ -36,7 +36,6 @@ Route::post('/solicitacoes', 'UsuarioController@solicitacoes');
 Route::post('/procurarGuilda','UsuarioController@procurarGuilda');
 Route::post('/solicitacoesGuildas', 'UsuarioController@solicitacoesGuildas');
 Route::post('/aceitarSolicitacaoGuilda', 'UsuarioController@aceitarSolicitacaoGuilda');
-
 Route::post('/solicitacaoGuilda','UsuarioController@solicitacaoGuilda');
 
 

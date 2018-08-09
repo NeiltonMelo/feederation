@@ -267,7 +267,7 @@ body {
                   <ul class="list-unstyled mb-0">
                   <form method="post" action="/home/guilda/{{$nomeGuilda}}/solicitacoesPersonas">
 						{{ csrf_field() }}
-						<input type="submit" name="procurarMembros" class="btn btn-primary" value="Cadidatos" />				
+						<input type="submit" name="procurarMembros" class="btn btn-primary" value="Candidatos" />				
 						</form>
                   </ul>
                 </div>
@@ -327,8 +327,9 @@ body {
 							<input type="submit" name="solicitacoesAmizade" class="btn btn-primary my-2 my-sm-0" value="Solicitações de Guilda" />				
 						</form>
                   </ul>
+                  @endif
                 </div>
-                @endif
+                
                   </ul>
                   
                 </div>

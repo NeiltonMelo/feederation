@@ -327,8 +327,9 @@ body {
 							<input type="submit" name="solicitacoesAmizade" class="btn btn-primary my-2 my-sm-0" value="Solicitações de Guilda" />				
 						</form>
                   </ul>
+                  @endif
                 </div>
-                @endif
+                
                   </ul>
                   
                 </div>

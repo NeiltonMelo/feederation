@@ -78,5 +78,7 @@ class UsuarioController extends Controller
 		return redirect("/listarUsuarios");
 	}	
 
-
+	public function verPerfilUsuario(){
+		return view('verPerfilUsuario');	
+	}
 }

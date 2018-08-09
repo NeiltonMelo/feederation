@@ -83,7 +83,7 @@ class AtualizacaoBanco extends Migration
             $table->foreign('guilda_id')->references('id')->on('guildas');
             
             
-            
+       	
         });
     }
 

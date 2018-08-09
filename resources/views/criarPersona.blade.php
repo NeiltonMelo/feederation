@@ -117,13 +117,7 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
 
         </div>
         
-        <div class="form-group">
-
-
-            <input type="email" class="form-control" id="game" placeholder="Jogo">
-
-        </div>
-        
+               
         <div class="form-group">
 
 
@@ -135,6 +129,16 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
 
             <input type="email" class="form-control" id="nascimento" placeholder="Nascimento">
 
+        </div>
+            
+         <div class="form-group">
+					<select class="form-control">
+  							<option>Jogos</option>
+  							<option>Jogos</option>
+  							<option>Jogos</option>
+  							<option>Jogos</option>
+  							<option>Jogos</option>
+					</select>
         </div>
         
         <button type="submit" class="btn btn-primary">Cadastrar</button>

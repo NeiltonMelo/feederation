@@ -140,7 +140,7 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
         
         <div class="form-group">
 
-            <input name="password" type="password" class="form-control" id="password" placeholder="Senha">
+            <input name="senha" type="password" class="form-control" id="password" placeholder="Senha">
 
         </div>
         

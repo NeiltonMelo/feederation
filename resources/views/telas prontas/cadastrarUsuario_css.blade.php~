@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>Cadastrar Usuario - Feederation</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -105,12 +105,12 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
    <h2>Cadastre-se</h2>
    <p>Preencha os campos abaixo</p>
    </div>
-    <form id="Login">
-
+    <form method="post" action="{{ url('cadastrarUsuario') }}" id="Login">
+		{{ csrf_field() }}
         <div class="form-group">
 
 
-            <input type="email" class="form-control" id="nome" placeholder="Nome">
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome">
 
         </div>
 

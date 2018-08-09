@@ -15,6 +15,11 @@ class PersonaController extends Controller
     public function escolherPersona(){
 		$id = Auth::user()->id;
     	$personas = \feederation\Persona::where('usuario_id',$id)->get();
+    	$nomes = [];
+    	foreach($personas as $persona){
+			$game = \feederation\Game::find($persona->game_id);    		
+    		array_push($nomes, $game->nome);
+    	}
 		return view ('/escolherPersona', ['personas' => $personas]);	
 	 }	
 	
@@ -25,7 +30,7 @@ class PersonaController extends Controller
 		$user->personaPadrao = $request->persona_id;
 		$user->nome_persona = $persona->nome;
 		$user->update();
-		return view('/home');	 
+		return redirect('/home');	 
 	}
 	
 	

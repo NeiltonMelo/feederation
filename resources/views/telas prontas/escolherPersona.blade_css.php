@@ -19,14 +19,32 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="css/landing-page.min.css" rel="stylesheet">
+    <link href="{{ URL::asset ('css/landing-page.min.css') }}" rel="stylesheet">
+	 <link href="{{ URL::asset ('vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+	 <link href="{{ URL::asset ('vendor/bootstrap/js/bootstrap.js') }}" rel="stylesheet">
+  
+<style type="text/css">
+  .login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+
+</style>  
 
   </head>
 
   <body>
+  
+<!--navigation -->
+ <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Feederation</a>
+        <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Sair</button>
+    </form>
+      </div>
+    </nav>
 
-
-    <section class="testimonials text-center bg-light">
+    <section class="testimonials text-center">
       <div class="container">
         <h2 class="mb-5">Escolha sua persona</h2>
         <div class="row">

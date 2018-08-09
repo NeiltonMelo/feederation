@@ -30,7 +30,9 @@ Route::post('/inserirPersona', 'PersonaController@inserirPersona');
 Route::post('/criarGuilda', 'GuildaController@criarGuilda');
 Route::post('/inserirGuilda', 'GuildaController@inserirGuilda');
 Route::post('/minhasGuildas', 'GuildaController@verMinhasGuildas');
-Route::get('/home/guilda/{nome}', 'GuildaController@verPerfilGuilda');
+Route::post('/sairGuilda', 'GuildaController@sairGuilda');
+Route::post('/home/guilda/{nome}', 'GuildaController@verPerfilGuilda');
+
 
 Route::post('/cadastrarGame', 'GameController@cadastrarGame');
 Route::post('/inserirGame', 'GameController@inserirGame');

@@ -36,7 +36,7 @@
 				</div>
 			@endif
 			<?php
-					$id = $_POST['persona_id'];
+					$id = $_POST['id'];
 				?>
 			<form method="post" action="inserirGuilda">
 			   {{ csrf_field() }}

@@ -23,14 +23,14 @@ class GuildaController extends Controller
 		return redirect("/home");
 	}
 	public function criarGuilda(Request $request){
-		return view('/criarGuilda', ['id' => $request->id]);
+		return view('/criarGuilda');
 	}
 	
 	public function verMinhasGuildas(){
 		$personas = \feederation\Persona::where('usuario_id', Auth::user()->id)->get();
 		$guildas = collect();
 		foreach($personas as $persona){	
-			$guilda = \feederation\Guilda::where('administrador_id' ,$persona->id)->get();
+			$guilda = \feederation\Guilda::where('id' ,$persona->guilda_id)->get();
 			$guildas = $guildas->merge($guilda);
 		}		
 		return view('/verGuilda', ['guildas' => $guildas]);	
@@ -43,5 +43,11 @@ class GuildaController extends Controller
 	
 	}
 	
-
+	public function sairGuilda(){
+		$persona = \feederation\Persona::find(Auth::user()->personaPadrao);
+		$persona->guilda_id = NULL;
+		$persona->cargosGuilda = NULL;
+		$persona->update();	
+		return redirect('/home');
+	}
 }

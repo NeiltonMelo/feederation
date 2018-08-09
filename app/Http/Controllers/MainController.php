@@ -80,8 +80,8 @@ class MainController extends Controller
 				}  	
     		}
     	}
-		return view('home', ['nomeGuilda' => $nomeGuilda ,
-									'posts' =>$posts,
+		return view('/home', ['nomeGuilda' => $nomeGuilda,
+									'posts' => $posts,
 									'personaGameNome' => $persona_game_nome,
 									'sobrenomePersona' => $sobrenomePersona,
 									'membrosGuilda' => $nomes,

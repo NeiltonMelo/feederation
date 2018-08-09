@@ -48,12 +48,13 @@
       <div class="container">
         <h2 class="mb-5">Escolha sua persona</h2>
         <div class="row">
+         <?php $i = 0; ?>
         	@foreach ($personas as $persona)
           <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
               <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
               <h5>{{$persona->nome}} {{$persona->sobrenome}}</h5>
-              <h5>{{$persona->game_id}}</h5>
+              <h5>{{$nomes[$i]}}</h5>
              <form method="post" action="/personaEscolhida">
              	{{ csrf_field() }}
              	<input type="hidden" name="persona_id" value="{{ $persona->id }}" />
@@ -61,6 +62,7 @@
 				 </form>
             </div>
           </div>
+        <?php $i++; ?>
          @endforeach
           
           <div class="col-lg-4">

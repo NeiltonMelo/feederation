@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/listarUsuarios','UsuarioController@listarUsuarios');
-Route::post('/editarUsuario{id}','UsuarioController@editarUsuario');
+Route::get('/editarUsuario{id}','UsuarioController@editarUsuario');
 Route::get('/remover/usuario{id}','UsuarioController@remover');
 Route::get('/atualizarUsuario','UsuarioController@atualizarUsuario');
 Route::post('/checarEmail', 'UsuarioController@checarEmail');

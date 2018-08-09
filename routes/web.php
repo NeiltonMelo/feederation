@@ -21,6 +21,9 @@ Route::get('/remover/usuario{id}','UsuarioController@remover');
 Route::get('/atualizarUsuario','UsuarioController@atualizarUsuario');
 Route::post('/checarEmail', 'UsuarioController@checarEmail');
 Route::post('/cadastrarUsuario', 'UsuarioController@cadastrarUsuario');
+Route::post('/verPerfilUsuario', 'UsuarioController@verPerfilUsuario');
+
+
 Route::get('/cadastrarGame','GameController@cadastrarGame');
 Route::post('/inserirGame', 'GameController@inserirGame');
 

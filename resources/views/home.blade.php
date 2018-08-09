@@ -99,7 +99,8 @@ body {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/home">Perfil</a>
-            </li>                     
+            </li>
+                     
             <li class="nav-item">
               <a class="nav-link" href="{{url('escolherPersona')}}">Personas</a>
 				</li>
@@ -313,9 +314,10 @@ body {
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
-                  <form method="post" action="solicitacoes" class="form-inline my-2 my-lg-0">
-			      		<input type="submit" name="login" class="btn btn-primary my-2 my-sm-0" value="Amizades" />
-   	 				</form>
+                  <form method="post" action="{{url('solicitacoes')}} class="form-inline my-2 my-lg-0"">
+							{{ csrf_field() }}
+							<input type="submit" name="solicitacoesAmizade" class="btn btn-primary my-2 my-sm-0" value="Solicitações de amizade" />				
+						</form>
                   </ul>
                 </div>
                 <div class="col-lg-6">

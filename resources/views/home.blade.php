@@ -24,7 +24,9 @@
 	 <link href="{{ URL::asset ('vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
 	 <link href="{{ URL::asset ('vendor/bootstrap/js/bootstrap.js') }}" rel="stylesheet">
 <!-- Custom styles for this template -->
-    <style type="text/css">
+
+   
+<style type="text/css">
 body {
   padding-top: 54px;
   background-image: url('img/bg-masthead.jpg');
@@ -37,6 +39,46 @@ body {
   }
 }
 </style>
+
+<script type="text/javascript" >
++ function($) {
+    'use strict';
+================
+
+    var dropZone = document.getElementById('drop-zone');
+    var uploadForm = document.getElementById('js-upload-form');
+
+    var startUpload = function(files) {
+        console.log(files)
+    }
+
+    uploadForm.addEventListener('submit', function(e) {
+        var uploadFiles = document.getElementById('js-upload-files').files;
+        e.preventDefault()
+
+        startUpload(uploadFiles)
+    })
+
+    dropZone.ondrop = function(e) {
+        e.preventDefault();
+        this.className = 'upload-drop-zone';
+
+        startUpload(e.dataTransfer.files)
+    }
+
+    dropZone.ondragover = function() {
+        this.className = 'upload-drop-zone drop';
+        return false;
+    }
+
+    dropZone.ondragleave = function() {
+        this.className = 'upload-drop-zone';
+        return false;
+    }
+
+}(jQuery);
+</script>
+
   </head>
 
   <body>
@@ -83,18 +125,69 @@ body {
 			
 			
 			<div class="card my-4">
-            <h5 class="card-header">Criar publicação</h5>
+            <h5 class="card-header">O que você está pensando?</h5>
             <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Publique aqui =)">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Publicar</button>
-                </span>
-              </div>
+            <div class="form-group">
+            	<label for="exampleInputEmail1">Titulo</label>
+    				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="tituloPost" placeholder="Titulo da publicação..." required>
             </div>
-          </div>
-
-
+					<div class="form-group">
+    					<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+  				</div>
+  				
+  				
+  				
+  				
+  				<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Anexar imagem</button>
+<button class="btn btn-primary" type="button">Publicar</button>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Anexe uma imagem...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<img src="img/modal_imagem.png" class="rounded mx-auto d-block" alt="...">      
+      
+      </div>
+      <div class="modal-footer">
+          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+            <div class="form-inline">
+              <div class="form-group">
+                <input type="file" name="files[]" id="js-upload-files" multiple>
+              </div>
+              <button type="submit" class="btn btn-primary" id="js-upload-submit">Enviar</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+  				
+  				
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  				
+  				
+  				
+  				
+  				
+  				
+  				
+  				
+				</div>	
+			</div>
 
           <!-- Blog Post -->
           <div class="card mb-4">

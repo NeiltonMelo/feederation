@@ -1,0 +1,13 @@
+<?php
+
+namespace feederation;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ImagensPosts extends Model
+{	
+	 
+    public function getURL(){
+        return url('storage/uploads/posts/'.$this->caminho);
+    }
+}

@@ -12,12 +12,12 @@ use Input;
 class GuildaController extends Controller
 {
    public function inserirGuilda(Request $request) {
+   	$persona = \feederation\Persona::find(Auth::user()->personaPadrao);
 		Guilda::create([
         		'nome'				=> $request->nome,
-        		'administrador_id'	=>	$request->administrador_id,
-				'game_id'				=> $request->game_nome
+        		'administrador_id'	=>	$persona->id,
+				'game_id'				=> $persona->game_id
       ]);
-      $persona = Persona::find($request->administrador_id);
       $guilda = \feederation\Guilda::where('nome', $request->nome)->first();
 		$persona->guilda_id = $guilda->id;
 		//$persona->cargo;
@@ -25,14 +25,14 @@ class GuildaController extends Controller
 		return redirect("/home");
 	}
 	public function criarGuilda(Request $request){
-		return view('/criarGuilda', ['id' => $request->id]);
+		return view('/criarGuilda');
 	}
 	
 	public function verMinhasGuildas(){
 		$personas = \feederation\Persona::where('usuario_id', Auth::user()->id)->get();
 		$guildas = collect();
 		foreach($personas as $persona){	
-			$guilda = \feederation\Guilda::where('id' ,$persona->guilda_id)->get();
+			$guilda = \feederation\Guilda::where('administrador_id' ,$persona->id)->get();
 			$guildas = $guildas->merge($guilda);
 		}		
 		return view('/verGuilda', ['guildas' => $guildas]);	
@@ -44,6 +44,17 @@ class GuildaController extends Controller
 		return view('/perfilGuilda', ['guilda_id'=>$request->guilda_id,'membros' => $membros, 'nome' => $request->nome]);	
 	
 	}
+	public function sairGuilda(){
+		$persona = \feederation\Persona::find(Auth::user()->personaPadrao);
+		$persona->guilda_id = NULL;
+		if($persona->cargosGuilda != NULL) {
+			$persona->cargosGuilda = NULL;
+		}
+		$persona->update();	
+		return redirect('/home');
+	}
+
+		
 	
 	public function adicionarMembro(Request $request){
 		$personas = \feederation\Persona::where('guilda_id', '!=',$request->guilda_id)
@@ -91,7 +102,7 @@ class GuildaController extends Controller
 		$guilda = \feederation\Guilda::find($persona->guilda_id);
 		$solicitacoes = \feederation\Solicitacao_de_Guilda::where('guilda_id', $persona->guilda_id)
 																		->where('confirmacaoUsuario',TRUE)->get(); 	
-		return view("/solicitacoesPersonas",['solicitacoes' => $solicitacoes]);
+		return view("/solicitacoesPersonas",['solicitacoes' => $solicitacoes,'nome' => $guilda->nomeGuilda]);
 	}	
 	
 	

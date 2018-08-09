@@ -81,6 +81,9 @@ class AtualizacaoBanco extends Migration
             $table->integer('guilda_id')->unsigned()->nullable();
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('guilda_id')->references('id')->on('guildas');
+            
+            
+            
         });
     }
 

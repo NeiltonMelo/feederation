@@ -35,8 +35,8 @@ class AmigoController extends Controller
 	
 	
 	public function listarAmigos(Request $request){
-		$personas = \feederation\Amigo::where('persona_id',Auth::user()->personaPadrao)->get();
-		return view ('listarAmigos', ['personas'=> $personas]);
+		$amigos = \feederation\Amigo::where('persona_id',Auth::user()->personaPadrao)->get();
+		return view ('listarAmigos', ['amigos'=> $amigos]);
 	}
 	
 	public function aceitarSolicitacao(Request $request){

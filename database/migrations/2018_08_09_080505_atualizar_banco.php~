@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AtualizacaoBanco extends Migration
+class AtualizarBanco extends Migration
 {
     /**
      * Run the migrations.
@@ -81,6 +81,13 @@ class AtualizacaoBanco extends Migration
             $table->integer('guilda_id')->unsigned()->nullable();
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('guilda_id')->references('id')->on('guildas');
+            
+
+        });
+        
+        Schema::table('imagensPosts', function (Blueprint $table) {    
+            $table->integer('post_id')->unsigned();
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 

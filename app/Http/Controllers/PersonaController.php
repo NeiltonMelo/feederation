@@ -15,7 +15,13 @@ class PersonaController extends Controller
     public function escolherPersona(){
 		$id = Auth::user()->id;
     	$personas = \feederation\Persona::where('usuario_id',$id)->get();
-		return view ('/escolherPersona', ['personas' => $personas]);	
+    	$nomes = [];
+    	foreach($personas as $persona){
+			$game = \feederation\Game::find($persona->game_id);    		
+    		array_push($nomes, $game->nome);
+    	}
+		return view ('/escolherPersona', ['personas' => $personas,
+													 'nomes' => $nomes ]);	
 	 }	
 	
 	function personaEscolhida(Request $request){
@@ -30,31 +36,33 @@ class PersonaController extends Controller
 	
 	
 	public function inserirPersona(Request $request) {
-		$this->validate($request, [
-    		'nome'				=>	'required',
-    		'sobrenome'			=>	'required',
-    		'sexo'				=>	'required',
-    		'nascimento'		=>	'required',
-    	]);
+		
+    	$game = \feederation\Game::where('nome',$request->nomeGame)->first();
+    	$id = Auth::user()->id;
     	Persona::create([
         		'nome'					=> $request->nome,
         		'sobrenome' 			=> $request->sobrenome,
         		'sexo'					=> $request->sexo,
         		'nascimento'			=> $request->nascimento,
-        		'game_id'				=> $request->game_nome,
-        		'usuario_id'			=>	$request->usuario_id
+        		'game_id'				=> $game->id,
+        		'usuario_id'			=>	$id
      	 ]);
-     	$game = \feederation\Game::find($request->game_nome);
      	$game->numeroUsuarios++;
      	$game->update();
-		return redirect("/home");
+		return redirect("escolherPersona");
     	
     	
 		
 	}
 	
-	public function criarPersona(Request $request){
-		return view('criarPersona', ['id'=>$request->id]);
+	public function criarPersona(){
+		$games = \feederation\Game::all();
+		$nomes = [];
+    	foreach($games as $game){  		
+    		array_push($nomes, $game->nome);
+    	}
+		return view('criarPersona', ['games' => $games,
+											  'nomes' => $nomes]);
 	}
 
 }

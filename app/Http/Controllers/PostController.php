@@ -9,10 +9,11 @@ use Auth;
 class PostController extends Controller
 {
     public function inserirPost(Request $request) {
-		
+		$user = Auth::user()->personaPadrao;
     	Post::create([
         		'conteudo'				=> $request->conteudo,
-        		'persona_id' 			=> $request->persona_id,
+        		'titulo'					=> $request->titulo,
+        		'persona_id' 			=> $user,
         		'guilda_id'				=> $request->guild_id,
      	 ]);
 		return redirect("/home");

@@ -87,6 +87,7 @@ class MainController extends Controller
 									'membrosGuilda' => $nomes,
 									'temGuilda' => $temGuilda]);    
     }	    
+    
     function loginEfetuado() {
     	return view('loginEfetuado');
     }

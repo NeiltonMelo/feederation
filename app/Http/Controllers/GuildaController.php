@@ -30,13 +30,14 @@ class GuildaController extends Controller
 		$personas = \feederation\Persona::where('usuario_id', Auth::user()->id)->get();
 		$guildas = collect();
 		foreach($personas as $persona){	
-			$guilda = \feederation\Guilda::where('id' ,$persona->guilda_id)->get();
+			$guilda = \feederation\Guilda::where('administrador_id' ,$persona->id)->get();
 			$guildas = $guildas->merge($guilda);
 		}		
 		return view('/verGuilda', ['guildas' => $guildas]);	
 	}
 						 
 	public function verPerfilGuilda(Request $request){
+		return view('/home');
 		$membros = \feederation\Persona::where('guilda_id', $request->guilda_id)->get();		
 		return view('/perfilGuilda', ['membros' => $membros, 'nome' => $request->nome]);	
 	

@@ -19,132 +19,63 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="css/landing-page.min.css" rel="stylesheet">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+    <link href="{{ URL::asset ('css/landing-page.min.css') }}" rel="stylesheet">
+	 <link href="{{ URL::asset ('vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+	 <link href="{{ URL::asset ('vendor/bootstrap/js/bootstrap.js') }}" rel="stylesheet">
+  
 <style type="text/css">
-body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:0px;}
-.form-heading { color:#fff; font-size:23px;}
-.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
-.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
-
-
-.login-form .form-control {
-  border: 1px solid #d4d4d4;
-  border-radius: 4px;
-  font-size: 14px;
-  height: 50px;
-  line-height: 50px;
-}
-.main-div {
-  background: #ffffff none repeat scroll 0 0;
-  border-radius: 2px;
-  margin: 10px auto 30px;
-  max-width: 38%;
-  padding: 50px 70px 70px 71px;
-}
-
-.login-form .form-group {
-  margin-bottom:10px;
-}
-.login-form{ text-align:center;}
-.forgot a {
-  color: #777777;
-  font-size: 14px;
-  text-decoration: underline;
-}
-.login-form  .btn.btn-primary {
-  background: #f0ad4e none repeat scroll 0 0;
-  border-color: #f0ad4e;
-  color: #ffffff;
-  font-size: 14px;
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
-  padding: 0;
-}
-.forgot {
-  text-align: left; margin-bottom:30px;
-}
-.botto-text {
-  color: #ffffff;
-  font-size: 14px;
-  margin: auto;
-}
-.login-form .btn.btn-primary.reset {
+  .login-form .btn.btn-primary.reset {
   background: #ff9900 none repeat scroll 0 0;
 }
-.back { text-align: left; margin-top:10px;}
-.back a {color: #444444; font-size: 13px;text-decoration: none;}
 
-</style>
+</style>  
 
   </head>
 
-  <body id="LoginForm">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
+  <body>
+  
+<!--navigation -->
+ <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
         <a class="navbar-brand" href="#">Feederation</a>
-        <a class="btn btn-primary" href="#">Sair</a>
+        <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Sair</button>
+    </form>
       </div>
     </nav>
 
-<div class="container">
-<h1 class="form-heading"></h1>
-<div class="login-form">
-<div class="main-div">
-    <div class="panel">
-   <h2>Cadastro de Persona</h2>
-   <p>Preencha os campos abaixo</p>
-   </div>
-    <form id="Login">
-
-        <div class="form-group">
-
-
-            <input type="email" class="form-control" id="nome" placeholder="Nome">
-
+    <section class="testimonials text-center">
+      <div class="container">
+        <h2 class="mb-5">Escolha sua persona</h2>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
+              <h5>Persona 1 </h5>
+              <h5>Jogo</h5>
+             <button class="btn btn-primary" type="button">Escolher</button>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
+              <h5>Persona 2</h5>
+              <h5>Jogo</h5>
+              <button class="btn btn-primary" type="button">Escolher</button>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
+              <h5>Adicionar persona</h5>
+             <button class="btn btn-primary" type="button">Criar persona</button>
+            </div>
+          </div>
         </div>
-
-			<div class="form-group">
-
-
-            <input type="email" class="form-control" id="sobrenome" placeholder="Sobrenome">
-
-        </div>
-        
-        <div class="form-group">
-
-
-            <input type="email" class="form-control" id="game" placeholder="Jogo">
-
-        </div>
-        
-        <div class="form-group">
-
-
-            <input type="email" class="form-control" id="sexo" placeholder="Sexo">
-
-        </div>
-        
-        <div class="form-group">
-
-            <input type="email" class="form-control" id="nascimento" placeholder="Nascimento">
-
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-
-    </form>
-    </div>
+      </div>
+    </section>
     
-    
-</div></div></div>
-
     <!-- Footer -->
     <footer class="footer bg-light">
       <div class="container">

@@ -82,7 +82,7 @@ body {
   </head>
 
   <body>
-	 @if(isset(Auth::user()->email))
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
@@ -98,20 +98,17 @@ body {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/home">Perfil</a>
+              <a class="nav-link" href="#">Perfil</a>
             </li>
 				<li class="nav-item">
               <a class="nav-link" href="#">Personas</a>
             </li>
                         
             <li class="nav-item">
-              <a class="nav-link" href="{{url('escolherPersona')}}">Personas</a>
-				</li>
-            <li class="nav-item">
               <a class="nav-link" href="#">Amigos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/main/sair')}}">Sair</a>
+              <a class="nav-link" href="#">Sair</a>
             </li>
           </ul>
         </div>
@@ -193,7 +190,6 @@ body {
 			</div>
 
           <!-- Blog Post -->
-          @foreach ($posts as $post)
           <div class="card mb-4">
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
             <div class="card-body">
@@ -206,7 +202,7 @@ body {
               <a href="#">Start Bootstrap</a>
             </div>
           </div>
-			 @endforeach
+
           <!-- Blog Post -->
           <div class="card mb-4">
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
@@ -244,82 +240,12 @@ body {
         <div class="col-md-4">
 
           <!-- Search Widget -->
-          <div class="card my-4">					<!-- GL HF   -->
-            <h5 class="card-header">GL HF</h5>
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
-                  <label>Logado como:</label> {{Auth::user()->nome_persona }} {{$sobrenomePersona}}
-                  </ul>
-                </div>
-               </div>
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                  <label>Você está jogando:</label> {{$personaGameNome}} 
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-			<div class="card my-4">						<!-- Guilda  -->
-            <h5 class="card-header">Guilda: {{$nomeGuilda}}</h5>
-            <div class="card-body">
-              @if ($temGuilda == TRUE)
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                  <label>Membros da Guilda:</label>
-                  @foreach ($membrosGuilda as $nome)
-                  {{$nome}}<br>
-                  @endforeach
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                  <form method="post" action="/sairGuilda">
-						{{ csrf_field() }}
-						<input type="submit" name="criarPersona" class="btn btn-lite" value="Sair Guilda" />				
-						</form>
-                  </ul>
-                </div>
-              </div>
-              @else																<!-- Sem Guilda -->
-              <div class="row">												<!-- Criar Guilda -->
-              	<div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                  <form method="post" action="/criarGuilda">
-						{{ csrf_field() }}
-						<input type="submit" name="criarPersona" class="btn btn-lite" value="Criar Guilda" />				
-						</form>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-              	<div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                  <form method="post" action="/procurarGuilda">
-						{{ csrf_field() }}
-						<input type="submit" name="criarPersona" class="btn btn-lite" value="Procurar Guilda" />				
-						</form>
-                  </ul>
-                </div>
-              </div>
-				  @endif            
-            </div>
-          </div>
-          <div class="card my-4">					<!-- Solicitações -->
-            <h5 class="card-header">Pedidos</h5>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                  <form method="post" action="solicitacoes" class="form-inline my-2 my-lg-0">
-			      		<input type="submit" name="login" class="btn btn-primary my-2 my-sm-0" value="Amizades" />
-   	 				</form>
                   </ul>
                 </div>
                 <div class="col-lg-6">
@@ -329,22 +255,38 @@ body {
               </div>
             </div>
           </div>
-			<div class="card my-4">					<!-- Adicionar um Amigo -->
-            <h5 class="card-header">Adicionar um Amigo</h5>
+			<div class="card my-4">
+            <h5 class="card-header">Categories</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
-                  <form method="post" action="{{ url('/procurarAmigo') }}" class="form-inline my-2 my-lg-0">
-  							{{ csrf_field() }}
-      					<input class="form-control mr-sm-2" type="text" name="nome" placeholder="Digite o nome" aria-label="Search">
-      					<input type="submit" name="login" class="btn btn-primary my-2 my-sm-0" value="Procurar" />
-   					 </form>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
                   </ul>
                 </div>
               </div>
             </div>
           </div>
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Side Widget -->
           <div class="card my-4">
             <h5 class="card-header">Side Widget</h5>
@@ -413,11 +355,7 @@ body {
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	 @else
-		<script>
-			window.location="/main";
-		</script>
-	 @endif
+
   </body>
 
 </html>

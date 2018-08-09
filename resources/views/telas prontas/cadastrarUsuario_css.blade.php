@@ -31,6 +31,7 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
 .panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
 
 
+
 .login-form .form-control {
   border: 1px solid #d4d4d4;
   border-radius: 4px;
@@ -79,6 +80,9 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 
+
+
+
 </style>
 
   </head>
@@ -98,7 +102,7 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
 <div class="login-form">
 <div class="main-div">
     <div class="panel">
-   <h2>Cadastro de Persona</h2>
+   <h2>Cadastre-se</h2>
    <p>Preencha os campos abaixo</p>
    </div>
     <form id="Login">
@@ -117,23 +121,26 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
 
         </div>
         
-        <div class="form-group">
+ <!-- radio button -->
+			<div class="form-check form-check-inline">
+  					<input type="radio" class="form-check-input" id="materialInline1" name="inlineMaterialRadiosExample">
+  					<label class="form-check-label" for="materialInline1">Masculino</label>
+			</div>
+<!-- radio button -->
+			<div class="form-check form-check-inline">
+  					<input type="radio" class="form-check-input" id="materialInline1" name="inlineMaterialRadiosExample">
+  					<label class="form-check-label" for="materialInline1">Feminino</label>
+			</div>
+			
+		  <div class="form-group">
 
-
-            <input type="email" class="form-control" id="game" placeholder="Jogo">
+            <input type="date" class="form-control" id="nascimento" placeholder="Nascimento">
 
         </div>
         
         <div class="form-group">
 
-
-            <input type="email" class="form-control" id="sexo" placeholder="Sexo">
-
-        </div>
-        
-        <div class="form-group">
-
-            <input type="email" class="form-control" id="nascimento" placeholder="Nascimento">
+            <input type="password" class="form-control" id="password" placeholder="Senha">
 
         </div>
         

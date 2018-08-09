@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>Criar Persona - Feederation</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -82,7 +82,16 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
 </style>
 
   </head>
-
+	@if(count($errors) >0)
+			
+				<div class="alert alert-danger">
+					<ul>
+						@foreach($errors->all() as $error)
+							<li>{{$error}}</li>
+						@endforeach
+					</ul>
+				</div>
+	@endif
   <body id="LoginForm">
 
     <!-- Navigation -->
@@ -101,19 +110,19 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
    <h2>Cadastro de Persona</h2>
    <p>Preencha os campos abaixo</p>
    </div>
-    <form id="Login">
-
+    <form method="post" action="inserirPersona" id="Login">
+			{{ csrf_field() }}
         <div class="form-group">
 
 
-            <input type="email" class="form-control" id="nome" placeholder="Nome">
+            <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome">
 
         </div>
 
 			<div class="form-group">
 
 
-            <input type="email" class="form-control" id="sobrenome" placeholder="Sobrenome">
+            <input name="sobrenome" type="text" class="form-control" id="sobrenome" placeholder="Sobrenome">
 
         </div>
         
@@ -121,27 +130,27 @@ body#LoginForm{ background-image:url("img/bg-masthead.jpg"); background-repeat:n
         <div class="form-group">
 
 
-            <input type="email" class="form-control" id="sexo" placeholder="Sexo">
+            <input name="sexo" type="text" class="form-control" id="sexo" placeholder="Sexo">
 
         </div>
         
         <div class="form-group">
 
-            <input type="email" class="form-control" id="nascimento" placeholder="Nascimento">
+            <input name="nascimento" type="text" class="form-control" id="nascimento" placeholder="Nascimento">
 
         </div>
             
          <div class="form-group">
-					<select class="form-control">
-  							<option>Jogos</option>
-  							<option>Jogos</option>
-  							<option>Jogos</option>
-  							<option>Jogos</option>
-  							<option>Jogos</option>
+					<select name="nomeGame" class="form-control">
+						<?php $i = 0; ?>
+						@foreach ($games as $game)
+  							<option value="{{$nomes[$i]}}"> {{$nomes[$i]}}</option>
+  						<?php $i++; ?>
+  						@endforeach
 					</select>
         </div>
         
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <input type="submit" name="criar" class="btn btn-primary" value="Criar" />
 
     </form>
     </div>

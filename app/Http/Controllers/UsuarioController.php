@@ -48,9 +48,7 @@ class UsuarioController extends Controller
         		'email'				=>	$request->email,
         		'password'			=>	bcrypt($request->password),
       ]);
-      $user = \feederation\User::where('email',$request->get('email'))->first();
-      $_POST['id'] = $user->id;
-		return view('criarPersona');
+		return redirect('/home');
 	}
 		
 	public function editarUsuario(Request $request){

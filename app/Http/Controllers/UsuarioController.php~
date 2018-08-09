@@ -48,9 +48,7 @@ class UsuarioController extends Controller
         		'email'				=>	$request->email,
         		'password'			=>	bcrypt($request->password),
       ]);
-      $user = \feederation\User::where('email',$request->get('email'))->first();
-      $_POST['id'] = $user->id;
-		return view('criarPersona');
+		return redirect('criarPersona');
 	}
 		
 	public function editarUsuario(Request $request){
@@ -71,7 +69,7 @@ class UsuarioController extends Controller
 		$user->sobrenome = $request->sobrenome;
 		$user->email=$request->email;
 		$user->update();
-		return redirect("/main/loginEfetuado");
+		return redirect("/home");
 	}  
 	
 	public function remover(Request $request){

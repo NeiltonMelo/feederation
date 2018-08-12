@@ -54,13 +54,16 @@ class MainController extends Controller
     function showHome() {
     	$persona = \feederation\Persona::find(Auth::user()->personaPadrao);
     	$sobrenomePersona = $persona->sobrenome;
+    	
     	$game = \feederation\Game::find($persona->game_id);
     	$guilda = \feederation\Guilda::find($persona->guilda_id);
 		$nomeGuilda = "";		
+		
 		if($guilda != NULL) {    	
     		$nomeGuilda = $guilda->nome;
 		}    	
     	$persona_game_nome = $game->nome;
+    	
     	$nomes = [];
     	$temGuilda = TRUE;
     	if($persona->guilda_id == NULL) {
@@ -81,12 +84,14 @@ class MainController extends Controller
 				}  	
     		}
     	}
+    	
     	$posts = \feederation\Post::where('persona_id', $persona->id)->get();
     	$amigos = \feederation\Amigo::where('persona_id',Auth::user()->personaPadrao)->get();
     	foreach($amigos as $amigo){
     		$postsaux = \feederation\Post::where('persona_id', $amigo->personaAmigo_id)->get();
     		$posts = $posts->merge($postsaux);
     	}
+    	
     	$posts2 = $posts->sortByDesc('created_at');
 		return view('/home', ['nomeGuilda' => $nomeGuilda,
 									'guilda'		=>	$guilda,

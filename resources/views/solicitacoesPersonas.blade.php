@@ -79,13 +79,15 @@
         <?php
 				$persona = \feederation\Persona::find($solicitacao->persona_id);
 				$nomeCompleto = $persona->nome." ".$persona->sobrenome;
+				$minhaPersona = \feederation\Persona::find(Auth::user()->personaPadrao);
+        		$guilda = \feederation\Guilda::find($minhaPersona->guilda_id);
+				$administrador = \feederation\Persona::find($guilda->administrador_id);
 			?>
 			
           <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-              <h5>{{ $guilda->nome}} </h5>
-              <h5>{{ $administrador->nome}}</h5>
+              	<img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
+              <h5>{{ $nomeCompleto}} </h5>
               <form method="post" action="/home/guilda/{{$nome}}/aceitarSolicitacaoPersona">
              		{{ csrf_field() }}
              		<input type="hidden" name="solicitacao_id" value="{{$solicitacao->id}}"/>

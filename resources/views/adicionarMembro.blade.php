@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,12 +73,8 @@
         <h2 class="mb-5">Adicionar Membro</h2>
         
 
-			@if ($error)
-				<div class="alert alert-danger alert-block">	
-					<button type="button" class="close" data-dismiss="alert">x</button>
-					<strong>Esta persona já solicitou sua entrada aqui!</strong>
-				</div>
-			@endif
+
+
 
 
         <div class="row">
@@ -88,6 +83,8 @@
         	<?php
 				$nomeCompleto = $persona->nome ." ".$persona->sobrenome;
 				$minhaPersona = \feederation\Persona::find(Auth::user()->personaPadrao);
+        		$guilda = \feederation\Guilda::find($minhaPersona->guilda_id);
+				$administrador = \feederation\Persona::find($guilda->administrador_id);
 			?>
 			
 			@if ($persona->id == Auth::user()->persona_id)
@@ -100,8 +97,7 @@
           <div class="col-lg-4">
             <div class="testimonial-item mx-auto mb-5 mb-lg-0">
               <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-              <h5>{{ $guilda->nome}} </h5>
-              <h5>{{ $administrador->nome}}</h5>
+              <h5>{{ $nomeCompleto}} </h5>
               <form method="post" action="/home/guilda/{{$nome}}/solicitacaoMembro">
              		{{ csrf_field() }}
              		<input type="hidden" name="nome" value="{{$persona->nome}}"/>
@@ -172,3 +168,4 @@
   </body>
 
 </html>
+
